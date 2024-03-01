@@ -2,7 +2,6 @@
 
 [![Npm publish](https://github.com/episerver/content-delivery-js-sdk/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/episerver/content-delivery-js-sdk/actions/workflows/npm-publish.yml) [![Continuous integration](https://github.com/episerver/content-delivery-js-sdk/actions/workflows/ci.yml/badge.svg)](https://github.com/episerver/content-delivery-js-sdk/actions/workflows/ci.yml)
 
-
 This repository contains the source code for the Content Delivery JavaScript SDKs and samples.
 
 ## Content Definitions
@@ -21,10 +20,12 @@ The samples are using Nuxt and Vue CLI v5.
 
 * [Nuxt - Coupled](samples/music-festival-vue-coupled)
 * [Vue.js - Decoupled](samples/music-festival-vue-decoupled)
+* [Next - Coupled](samples/music-festival-react-coupled)
 
 ## Prerequisites for building and testing the SDKs
 
 This project uses:
+
 * Node.js 18+
 * .NET SDK 6+
 * SQL Server 2016 Express LocalDB ([download here](https://www.microsoft.com/en-us/sql-server/sql-server-downloads))
