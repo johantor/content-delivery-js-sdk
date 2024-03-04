@@ -8,4 +8,5 @@ export interface ArtistDetailsPage extends ContentData {
     performanceEndTime: string;
     performanceStartTime: string;
     stageName: string;
+    url: string;
 }
