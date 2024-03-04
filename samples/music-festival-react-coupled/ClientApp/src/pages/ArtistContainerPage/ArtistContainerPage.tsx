@@ -1,9 +1,10 @@
+import Card from '@/components/Card';
 import EpiContent from '@/types/EpiContent';
 import { ContentLoader } from '@episerver/content-delivery';
 import { ReactElement, useState } from 'react';
 import { ArtistDetailsPage } from '../ArtistDetailsPage/ArtistDetailsPageProps';
 
-export const ArtistContainerPage = ({ content }: EpiContent): ReactElement => {
+const ArtistContainerPage = ({ content }: EpiContent): ReactElement => {
     const [artists, setArtists] = useState<[string, ArtistDetailsPage[]][]>([]);
     const [loading, setLoading] = useState(true);
     const contentLoader = new ContentLoader();
@@ -66,14 +67,13 @@ export const ArtistContainerPage = ({ content }: EpiContent): ReactElement => {
                                 <div key={key}>
                                     <h3>{key}</h3>
                                     {values.map((value, key) => (
-                                        <div key={key}>{value.artistName}</div>
-                                        // <Card
-                                        //     v-for="(value, key) in value"
-                                        //     key={key}
-                                        //     name={value.artistName}
-                                        //     image={value.artistPhoto}
-                                        //     url={value.url}
-                                        // />
+                                        <Card
+                                            v-for="(value, key) in value"
+                                            key={key}
+                                            name={value.artistName}
+                                            image={value.artistPhoto}
+                                            url={value.url}
+                                        />
                                     ))}
                                 </div>
                             );
