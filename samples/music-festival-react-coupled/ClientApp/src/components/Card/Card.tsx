@@ -1,4 +1,4 @@
-import styles from './Card.module.css';
+import styles from './Card.module.scss';
 
 import React, { ReactElement } from 'react';
 import EpiserverLink from '../EpiserverLink';
@@ -9,10 +9,10 @@ const Card = ({ name, image, url }: CardProps): ReactElement => {
         <EpiserverLink url={url}>
             <div className={styles.card}>
                 <div className={styles.round}>
-                    {/* <ConditionalImage src={image} className={styles.round-image} alt={name} /> */}
+                    {/* <ConditionalImage src={image} alt={name} /> */}
                 </div>
                 <div className={styles.info}>
-                    <p className={styles.infoText}>{name}</p>
+                    <p>{name}</p>
                 </div>
             </div>
         </EpiserverLink>

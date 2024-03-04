@@ -16,24 +16,25 @@
         width: 60px;
         height: 60px;
     }
+
+    img {
+        max-width: 150%;
+        margin-left: -15px;
+    }
 }
 
-.round-img {
-    max-width: 150%;
-    margin-left: -15px;
-}
 .info {
     flex-grow: 1;
-}
 
-.info p {
-    margin: 0;
+    p {
+        margin: 0;
 
-    font: 14px/20px var(--fontSubHeading);
-}
+        //font: 14px/20px $fontSubHeading;
+    }
 
-.info span {
-    display: block;
+    span {
+        display: block;
 
-    font: 12px/16px var(--fontFamilyPrimary);
+        //font: 12px/16px $fontFamilyPrimary;
+    }
 }
