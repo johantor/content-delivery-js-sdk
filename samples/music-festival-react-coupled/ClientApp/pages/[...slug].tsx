@@ -9,8 +9,8 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
 import React, { useEffect, useState } from 'react';
+import BlockComponentSelector from '../src/components/BlockComponentSelector';
 import useResolvedContent from '../src/hooks/useResolvedContent';
-import EpiserverPage from '../src/pages/EpiserverPage';
 
 const Page = () => {
     const router = useRouter();
@@ -19,7 +19,6 @@ const Page = () => {
     const [pageContent, setPageContent] = useState<
         ResolvedContent<ContentData>
     >({} as ResolvedContent<ContentData>);
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -43,6 +42,7 @@ const Page = () => {
                             )
                         )
                             setPageContent(resolvedContent);
+
                         break;
                 }
             } catch (error) {
@@ -70,6 +70,9 @@ const Page = () => {
     //     ResolvedContentStatus.Resolved
     // );
 
+    //const pageType = pageContent.content?.contentType.pop();
+    // const pageComponentName = router.isReady && pageType ? pageType : 'Default';
+
     return (
         <>
             {pending && <h1>Loading...</h1>}
@@ -88,7 +91,7 @@ const Page = () => {
                                 strategy="afterInteractive"
                             />
                         )}
-                        <EpiserverPage model={pageContent.content} />
+                        <BlockComponentSelector content={pageContent.content} />
                     </div>
                 )}
         </>
