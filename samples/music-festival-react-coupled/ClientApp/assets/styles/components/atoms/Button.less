@@ -4,9 +4,10 @@ The button classes are best applied to links and buttons.
 These components can be used in forms, as calls to action, or as part of the general UI of the site/app.
 */
 
-@import "../../common/variables.less";
+@import '../../common/variables.less';
 
-.Button, button {
+.Button,
+button {
     background: @colorTurquoise;
     border-radius: 2em;
     color: @colorBlue;
@@ -19,7 +20,7 @@ These components can be used in forms, as calls to action, or as part of the gen
     box-shadow: 0 0 12px 0 fade(@colorBlack, 36%);
     border: 0;
     transition: all 300ms;
-    &:hover{
+    &:hover {
         text-decoration: none;
         background-color: @colorBlue;
         color: @colorTurquoise;

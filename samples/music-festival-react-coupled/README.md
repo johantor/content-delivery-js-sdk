@@ -2,7 +2,7 @@
 
 This sample site demonstrates one approach to render Optimizely content with a JavaScript framework with server-side rendering, client side routing, working On-Page Edit (OPE) mode, and where the client app and backend are hosted in the same application. The client app is hosted in its own Noje.js process and then proxied by dotnet. [See below for a more details](#architecture).
 
-This sample uses [Nuxt 3](https://v3.nuxtjs.org/) (the Vue.js equivalent to React's Next.js), but most of the techniques are framework agnostic and can be used with any other framework, such as React or Angular.
+This sample uses [Next](https://nextjs.org/), but most of the techniques are framework agnostic and can be used with any other framework, such as Vue or Angular.
 
 Content is fetched from Optimizely using the Content Delivery API: https://world.optimizely.com/documentation/developer-guides/cms/content/content-delivery-api/
 

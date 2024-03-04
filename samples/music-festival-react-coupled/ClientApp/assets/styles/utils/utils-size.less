@@ -1,4 +1,4 @@
-@import (reference) "../common/variables.less";
+@import (reference) '../common/variables.less';
 
 /*
     Size Utility
@@ -12,7 +12,8 @@
     Adding another class of .u-lg-size1of4 would mean the element gets 25% when @bpLarge breakpoint gets active.
 */
 
-.u-sizeFull, .u-size1of1 {
+.u-sizeFull,
+.u-size1of1 {
     width: 100% !important;
 }
 
@@ -25,13 +26,13 @@
 .u-sizeMediaQuery(@prefixMedium, @bpMedium); // Medium and wider
 .u-sizeMediaQuery(@prefixLarge, @bpLarge); // Large and wider
 
-.u-sizeMediaQuery(@prefix: ~"", @breakpoint) {
+.u-sizeMediaQuery(@prefix: ~'', @breakpoint) {
     @media @breakpoint {
         .u-size(@prefix);
     }
 }
 
-.u-size(@prefix: ~"") {
+.u-size(@prefix: ~'') {
     /* Intrinsic widths
     ========================================================================== */
 
@@ -65,7 +66,7 @@
     *    http://git.io/vllMD
     */
 
-    [class*="u-@{prefix}size"] {
+    [class*='u-@{prefix}size'] {
         flex-basis: auto !important; /* 1 */
     }
 

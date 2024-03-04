@@ -1,6 +1,6 @@
-@import (reference) "../common/variables.less";
+@import (reference) '../common/variables.less';
 
-.u-offset(@prefix: ~"", @direction: ~"before", @marginDirection: ~"left") {
+.u-offset(@prefix: ~'', @direction: ~'before', @marginDirection: ~'left') {
     // Specify the proportional offset before or after an object.
     // Intentional redundancy build into each set of unit classes.
     // Supports: 2, 3, 4, 5, 6, 8, 10, 12 section
@@ -117,14 +117,14 @@
     }
 }
 
-.u-before(@prefix: ~"", @breakpoint) {
+.u-before(@prefix: ~'', @breakpoint) {
     @media @breakpoint {
         .u-offset(@prefix);
     }
 }
 
-.u-after(@prefix: ~"", @breakpoint) {
+.u-after(@prefix: ~'', @breakpoint) {
     @media @breakpoint {
-        .u-offset(@prefix, ~"after", ~"right");
+        .u-offset(@prefix, ~'after', ~'right');
     }
 }

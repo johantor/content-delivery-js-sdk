@@ -11,6 +11,6 @@
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "declarationMap": true,
-    "outDir": "lib/",
-  },
+    "outDir": "lib/"
+  }
 }

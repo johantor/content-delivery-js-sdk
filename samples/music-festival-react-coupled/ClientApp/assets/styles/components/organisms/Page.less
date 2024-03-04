@@ -5,7 +5,7 @@ It also has a .Page-container that is used for containing the site within the ma
 
 */
 
-@import "../../common/variables.less";
+@import '../../common/variables.less';
 
 .Page {
     padding: 0;
@@ -24,7 +24,7 @@ It also has a .Page-container that is used for containing the site within the ma
 }
 
 .PageHeader-title {
-    margin: 0 .5em;
+    margin: 0 0.5em;
     font-family: @fontFamilySecondary;
     font-weight: 700;
     font-size: 20px;
@@ -40,16 +40,14 @@ It also has a .Page-container that is used for containing the site within the ma
     padding: 0 @spaceMedium;
 }
 
-
-
 #content {
-    min-height: ~"calc(100vh - 119px)";
+    min-height: ~'calc(100vh - 119px)';
     padding-top: 60px;
 }
 
 // If we're logged in and the admin bar is showing, move everything down for it.
 .logged-in #content {
-    min-height: ~"calc(100vh - 181px)";
+    min-height: ~'calc(100vh - 181px)';
 }
 
 .container {
@@ -87,16 +85,15 @@ It also has a .Page-container that is used for containing the site within the ma
     flex-direction: column;
 }
 
-
 @media @bpLarge {
     #content {
-        min-height: ~"calc(100vh - 94px)";
+        min-height: ~'calc(100vh - 94px)';
         padding-top: 90px;
     }
 
     // If we're logged in and the admin bar is showing, move everying down for it.
     .logged-in #content {
-        min-height: ~"calc(100vh - 127px)";
+        min-height: ~'calc(100vh - 127px)';
     }
 
     .container {

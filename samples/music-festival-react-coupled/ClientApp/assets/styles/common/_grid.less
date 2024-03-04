@@ -78,14 +78,21 @@
     padding-right: (1px * @gutterSize);
 }
 
-.Grid--hasArticleWidth{
-        max-width:855px;
-        margin:0 auto;
-    }
+.Grid--hasArticleWidth {
+    max-width: 855px;
+    margin: 0 auto;
+}
 
 // special case, use margin instead of padding when having borderAllSides utility turned on
-.Grid--hasBorders > .Grid-cell > a{display:block;width:100%;position:relative;overflow:hidden;}
-.Grid--hasBorders > .Grid-cell > a > img{vertical-align:middle;}
+.Grid--hasBorders > .Grid-cell > a {
+    display: block;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.Grid--hasBorders > .Grid-cell > a > img {
+    vertical-align: middle;
+}
 
 @media @bpMedium {
     .Grid--withExtraWideGutter {
@@ -127,7 +134,7 @@
 .Grid--withGutterY {
     margin-top: (-1px * @gutterSize);
     margin-bottom: (-1px * @gutterSize);
-    line-height:0;
+    line-height: 0;
 }
 
 .Grid--withGutterY > .Grid-cell {

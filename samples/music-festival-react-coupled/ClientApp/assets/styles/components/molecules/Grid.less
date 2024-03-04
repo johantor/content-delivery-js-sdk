@@ -1,4 +1,4 @@
-@import "../../common/variables.less";
+@import '../../common/variables.less';
 
 /*#
 **Core grid component**
@@ -12,9 +12,9 @@ widths and offsets should be applied to child grid cells.
 /* stylelint-disable declaration-property-unit-whitelist, no-duplicate-selectors */
 
 @Grid-gutterXsm: unit((@spaceXSmall * @baseFontSize), px);
-@Grid-gutterSm:  unit((@spaceSmall  * @baseFontSize), px);
-@Grid-gutterMd:  unit((@spaceMedium * @baseFontSize), px);
-@Grid-gutterLg:  unit((@spaceLarge  * @baseFontSize), px);
+@Grid-gutterSm: unit((@spaceSmall * @baseFontSize), px);
+@Grid-gutterMd: unit((@spaceMedium * @baseFontSize), px);
+@Grid-gutterLg: unit((@spaceLarge * @baseFontSize), px);
 @Grid-gutterXlg: unit((@spaceXLarge * @baseFontSize), px);
 
 @Grid-gutterDefault: @Grid-gutterLg;
@@ -167,32 +167,38 @@ widths and offsets should be applied to child grid cells.
     }
 
     // Gutter Horizontal Default
-    &.Grid--gutterH, &.Grid--gutterA {
+    &.Grid--gutterH,
+    &.Grid--gutterA {
         .Grid--gutterHorizontal(@Grid-gutterDefault);
     }
 
     // Gutter Horizontal  XSmall
-    &.Grid--gutterHxsm, &.Grid--gutterAxsm {
+    &.Grid--gutterHxsm,
+    &.Grid--gutterAxsm {
         .Grid--gutterHorizontal(@Grid-gutterXsm);
     }
 
     // Gutter Horizontal  Small
-    &.Grid--gutterHsm, &.Grid--gutterAsm {
+    &.Grid--gutterHsm,
+    &.Grid--gutterAsm {
         .Grid--gutterHorizontal(@Grid-gutterSm);
     }
 
     // Gutter Horizontal  Medium
-    &.Grid--gutterHmd, &.Grid--gutterAmd {
+    &.Grid--gutterHmd,
+    &.Grid--gutterAmd {
         .Grid--gutterHorizontal(@Grid-gutterMd);
     }
 
     // Gutter Horizontal  Large
-    &.Grid--gutterHlg, &.Grid--gutterAlg {
+    &.Grid--gutterHlg,
+    &.Grid--gutterAlg {
         .Grid--gutterHorizontal(@Grid-gutterLg);
     }
 
     // Gutter Horizontal  XLarge
-    &.Grid--gutterHxlg, &.Grid--gutterAxlg {
+    &.Grid--gutterHxlg,
+    &.Grid--gutterAxlg {
         .Grid--gutterHorizontal(@Grid-gutterXlg);
     }
 
@@ -210,45 +216,51 @@ widths and offsets should be applied to child grid cells.
     }
 
     // Gutter Vertical Default
-    &.Grid--gutterV, &.Grid--gutterA {
+    &.Grid--gutterV,
+    &.Grid--gutterA {
         .Grid--gutterVertical(@Grid-gutterDefault);
     }
 
     // Gutter Vertical XSmall
-    &.Grid--gutterVxsm, &.Grid--gutterAxsm {
+    &.Grid--gutterVxsm,
+    &.Grid--gutterAxsm {
         .Grid--gutterVertical(@Grid-gutterXsm);
     }
 
     // Gutter Vertical Small
-    &.Grid--gutterVsm, &.Grid--gutterAsm {
+    &.Grid--gutterVsm,
+    &.Grid--gutterAsm {
         .Grid--gutterVertical(@Grid-gutterSm);
     }
 
     // Gutter Vertical Medium
-    &.Grid--gutterVmd, &.Grid--gutterAmd {
+    &.Grid--gutterVmd,
+    &.Grid--gutterAmd {
         .Grid--gutterVertical(@Grid-gutterMd);
     }
 
     // Gutter Vertical Large
-    &.Grid--gutterVlg, &.Grid--gutterAlg {
+    &.Grid--gutterVlg,
+    &.Grid--gutterAlg {
         .Grid--gutterVertical(@Grid-gutterLg);
     }
 
     // Gutter Vertical XLarge
-    &.Grid--gutterVxlg, &.Grid--gutterAxlg {
+    &.Grid--gutterVxlg,
+    &.Grid--gutterAxlg {
         .Grid--gutterVertical(@Grid-gutterXlg);
     }
 }
 
-.FlexGrid{
+.FlexGrid {
     display: flex;
-    &-cell{
-        &--fluid{
+    &-cell {
+        &--fluid {
             flex-grow: 1;
         }
     }
 }
 
-.Grid--rowReverse{
+.Grid--rowReverse {
     flex-direction: row-reverse;
 }
