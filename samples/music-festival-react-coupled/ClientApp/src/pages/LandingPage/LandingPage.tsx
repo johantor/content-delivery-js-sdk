@@ -1,6 +1,7 @@
 import EpiserverLink from '@/components/EpiserverLink';
 import styles from './LandingPage.module.scss';
 
+import EpiserverContentArea from '@/components/EpiserverContentArea';
 import Hero from '@/components/Hero';
 import LanguageSelector from '@/components/LanguageSelector';
 import { addEditAttributes } from '@/utils/episerverAttributes';
@@ -38,13 +39,13 @@ const LandingPage = ({ content }: LandingPageProps): ReactElement => {
 
             <main className="Page-container">
                 <div {...addEditAttributes('MainContentArea')}>
-                    {/* <EpiserverContentArea model="content.mainContentArea" /> */}
+                    <EpiserverContentArea content={content.mainContentArea} />
                 </div>
             </main>
 
             <footer>
                 <div {...addEditAttributes('FooterContentArea')}>
-                    {/* <EpiserverContentArea model="content.footerContentArea" /> */}
+                    <EpiserverContentArea content={content.footerContentArea} />
                 </div>
                 <div className="FooterBottom">
                     <h6>&copy; Music Festival 2022</h6>
