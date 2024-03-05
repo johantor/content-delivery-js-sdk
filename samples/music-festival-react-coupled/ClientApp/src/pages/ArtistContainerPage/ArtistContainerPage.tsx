@@ -6,20 +6,22 @@ import EpiContent from '@/types/EpiContent';
 import { addEditAttributes } from '@/utils/episerverAttributes';
 import { ContentLoader } from '@episerver/content-delivery';
 import { ReactElement, useState } from 'react';
-import { ArtistDetailsPage } from '../ArtistDetailsPage/ArtistDetailsPageProps';
+import { ArtistDetailsProps } from '../ArtistDetailsPage/ArtistDetailsPageProps';
 
 const ArtistContainerPage = ({ content }: EpiContent): ReactElement => {
-    const [artists, setArtists] = useState<[string, ArtistDetailsPage[]][]>([]);
+    const [artists, setArtists] = useState<[string, ArtistDetailsProps[]][]>(
+        []
+    );
     const [loading, setLoading] = useState(true);
     const contentLoader = new ContentLoader();
 
     if (loading)
         contentLoader
-            .getChildren<ArtistDetailsPage>(content.contentLink.guidValue, {
+            .getChildren<ArtistDetailsProps>(content.contentLink.guidValue, {
                 branch: content.language.name,
             })
             .then((children) => {
-                const ordered: ArtistDetailsPage[] = children.sort(
+                const ordered: ArtistDetailsProps[] = children.sort(
                     (a, b): number =>
                         a.artistName.toLowerCase() < b.artistName.toLowerCase()
                             ? -1
@@ -30,9 +32,9 @@ const ArtistContainerPage = ({ content }: EpiContent): ReactElement => {
                 const artistsByLetter = ordered.reduce(
                     (
                         groups: {
-                            [key: string]: ArtistDetailsPage[];
+                            [key: string]: ArtistDetailsProps[];
                         },
-                        item: ArtistDetailsPage
+                        item: ArtistDetailsProps
                     ) => {
                         const letter = item.artistName.substring(0, 1);
                         groups[letter] = groups[letter] || [];
@@ -71,7 +73,6 @@ const ArtistContainerPage = ({ content }: EpiContent): ReactElement => {
                                     <h3>{key}</h3>
                                     {values.map((value, key) => (
                                         <Card
-                                            v-for="(value, key) in value"
                                             key={key}
                                             name={value.artistName}
                                             image={value.artistPhoto}

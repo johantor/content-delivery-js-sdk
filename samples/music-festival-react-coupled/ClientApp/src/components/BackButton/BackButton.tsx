@@ -5,7 +5,7 @@ import React, { ReactElement } from 'react';
 import EpiserverLink from '../EpiserverLink';
 import { BackButtonProps } from './BackButtonProps';
 
-const Card = ({ previousUrl }: BackButtonProps): ReactElement => {
+const BackButton = ({ previousUrl }: BackButtonProps): ReactElement => {
     return (
         <div className={styles.backButton}>
             <EpiserverLink url={previousUrl} className={styles.link}>
@@ -15,4 +15,4 @@ const Card = ({ previousUrl }: BackButtonProps): ReactElement => {
     );
 };
 
-export default React.memo(Card);
+export default React.memo(BackButton);
