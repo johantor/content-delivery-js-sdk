@@ -1,3 +1,5 @@
+import styles from './ArtistContainerPage.module.scss';
+
 import Card from '@/components/Card';
 import EpiContent from '@/types/EpiContent';
 import { ContentLoader } from '@episerver/content-delivery';
@@ -42,7 +44,7 @@ const ArtistContainerPage = ({ content }: EpiContent): ReactElement => {
             .finally(() => setLoading(false));
 
     return (
-        <div className="ArtistContainerPage">
+        <div className={styles.ArtistContainerPage}>
             <nav className="Page-container PageHeader NavBar">
                 {/*
 
