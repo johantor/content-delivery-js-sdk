@@ -3,6 +3,7 @@ import styles from './ArtistContainerPage.module.scss';
 import BackButton from '@/components/BackButton';
 import Card from '@/components/Card';
 import EpiContent from '@/types/EpiContent';
+import { addEditAttributes } from '@/utils/episerverAttributes';
 import { ContentLoader } from '@episerver/content-delivery';
 import { ReactElement, useState } from 'react';
 import { ArtistDetailsPage } from '../ArtistDetailsPage/ArtistDetailsPageProps';
@@ -59,7 +60,7 @@ const ArtistContainerPage = ({ content }: EpiContent): ReactElement => {
 
             <div className="Page-container">
                 <div className="top gutter">
-                    <h1 v-epi-edit="'Name'">{content.name}</h1>
+                    <h1 {...addEditAttributes('Name')}>{content.name}</h1>
                 </div>
                 <div className="list">
                     {artists &&
