@@ -1,5 +1,5 @@
 import { ContentData } from '@episerver/content-delivery';
 
-export type BlockComponentSelectorProps = {
+export default interface BlockComponentSelectorProps {
     content?: ContentData;
-};
+}

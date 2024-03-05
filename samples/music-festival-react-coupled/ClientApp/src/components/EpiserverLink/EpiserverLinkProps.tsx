@@ -1,6 +1,8 @@
 import { PropsWithChildren } from 'react';
 
-export type EpiserverLinkProps = PropsWithChildren<{
+type EpiserverLinkProps = PropsWithChildren<{
     url: string;
     className?: string;
 }>;
+
+export default EpiserverLinkProps;

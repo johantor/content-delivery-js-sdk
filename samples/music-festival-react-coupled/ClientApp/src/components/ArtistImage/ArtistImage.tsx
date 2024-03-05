@@ -1,8 +1,8 @@
 import styles from './ArtistImage.module.scss';
 
 import React, { ReactElement } from 'react';
-import { ArtistImageProps } from './ArtistImageProps';
 import ConditionalImage from '../ConditionalImage';
+import ArtistImageProps from './ArtistImageProps';
 
 const ArtistImage = ({ imageUrl, name }: ArtistImageProps): ReactElement => {
     return (

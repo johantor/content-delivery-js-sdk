@@ -1,3 +1,3 @@
-export type BackButtonProps = {
+export default interface BackButtonProps {
     previousUrl: string;
-};
+}

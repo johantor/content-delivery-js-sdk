@@ -3,7 +3,7 @@ import styles from './BackButton.module.scss';
 import Image from 'next/image';
 import React, { ReactElement } from 'react';
 import EpiserverLink from '../EpiserverLink';
-import { BackButtonProps } from './BackButtonProps';
+import BackButtonProps from './BackButtonProps';
 
 const BackButton = ({ previousUrl }: BackButtonProps): ReactElement => {
     return (

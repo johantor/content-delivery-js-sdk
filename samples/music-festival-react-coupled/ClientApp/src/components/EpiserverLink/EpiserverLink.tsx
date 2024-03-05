@@ -2,7 +2,7 @@ import useResolvedContent from '@/hooks/useResolvedContent';
 import { ContextMode } from '@episerver/content-delivery';
 import Link from 'next/link';
 import { ReactElement } from 'react';
-import { EpiserverLinkProps } from './EpiserverLinkProps';
+import EpiserverLinkProps from './EpiserverLinkProps';
 
 const EpiserverLink = ({
     className,

@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 
 import getComponentTypeForContent from '@/utils/getComponentTypeForContent';
-import { BlockComponentSelectorProps } from './BlockComponentSelectorProps';
+import BlockComponentSelectorProps from './BlockComponentSelectorProps';
 
 function BlockComponentSelector({
     content,

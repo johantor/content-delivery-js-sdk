@@ -3,7 +3,7 @@ import styles from './Card.module.scss';
 import React, { ReactElement } from 'react';
 import ConditionalImage from '../ConditionalImage';
 import EpiserverLink from '../EpiserverLink';
-import { CardProps } from './CardProps';
+import CardProps from './CardProps';
 
 const Card = ({ name, image, url }: CardProps): ReactElement => {
     return (

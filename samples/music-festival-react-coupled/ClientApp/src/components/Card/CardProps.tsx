@@ -1,5 +1,5 @@
-export type CardProps = {
+export default interface CardProps {
     name: string;
     image: string;
     url: string;
-};
+}
