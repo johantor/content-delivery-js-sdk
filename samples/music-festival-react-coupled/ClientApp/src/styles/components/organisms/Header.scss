@@ -2,24 +2,22 @@
 Component for the header section.
 */
 
-@import '../../common/variables.less';
-
-@Header-bg: #f4f4f4;
-@Header-border: darken(#f4f4f4, 5%);
+$Header-bg: #f4f4f4;
+$Header-border: darken(#f4f4f4, 5%);
 
 .Header {
-    border-bottom: 1px solid @Header-border;
+    border-bottom: 1px solid $Header-border;
     width: 100%;
 }
 
 .Header-secondary {
-    padding: 0 @spaceMedium;
-    background: @Header-bg;
+    padding: 0 $spaceMedium;
+    background: $Header-bg;
     text-align: right;
 }
 
 .Header-primary {
-    padding: (@spaceLarge - 0.5em) @spaceMedium;
+    padding: ($spaceLarge - 0.5rem) $spaceMedium;
 }
 
 .Header-primaryContainer {

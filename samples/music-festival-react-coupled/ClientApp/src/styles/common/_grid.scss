@@ -47,35 +47,35 @@
 */
 
 .Grid--withGutter {
-    margin-left: (-0.5px * @gutterSize);
-    margin-right: (-0.5px * @gutterSize);
+    margin-left: calc(-0.5 * $gutterSize);
+    margin-right: calc(-0.5 * $gutterSize);
 }
 
 .Grid--withOuterGutter {
-    margin-left: (0.5px * @gutterSize);
-    margin-right: (0.5px * @gutterSize);
+    margin-left: calc(0.5 * $gutterSize);
+    margin-right: calc(0.5 * $gutterSize);
 }
 
 .Grid--withGutter > .Grid-cell {
-    padding-left: (0.5px * @gutterSize);
-    padding-right: (0.5px * @gutterSize);
+    padding-left: calc(0.5 * $gutterSize);
+    padding-right: calc(0.5 * $gutterSize);
 }
 
 /* Extra wide gutters */
 
 .Grid--withWideGutter {
-    margin-left: (-1px * @gutterSize);
-    margin-right: (-1px * @gutterSize);
+    margin-left: calc(-1 * $gutterSize);
+    margin-right: calc(-1 * $gutterSize);
 
     &.Grid--withOuterGutter {
-        margin-left: (1px * @gutterSize);
-        margin-right: (1px * @gutterSize);
+        margin-left: calc(1 * $gutterSize);
+        margin-right: calc(1 * $gutterSize);
     }
 }
 
 .Grid--withWideGutter > .Grid-cell {
-    padding-left: (1px * @gutterSize);
-    padding-right: (1px * @gutterSize);
+    padding-left: calc(1 * $gutterSize);
+    padding-right: calc(1 * $gutterSize);
 }
 
 .Grid--hasArticleWidth {
@@ -94,20 +94,20 @@
     vertical-align: middle;
 }
 
-@media @bpMedium {
+@include bpMedium {
     .Grid--withExtraWideGutter {
-        margin-left: (-2px * @gutterSize);
-        margin-right: (-2px * @gutterSize);
+        margin-left: calc(-2 * $gutterSize);
+        margin-right: calc(-2 * $gutterSize);
 
         &.Grid--withOuterGutter {
-            margin-left: (2px * @gutterSize);
-            margin-right: (2px * @gutterSize);
+            margin-left: calc(2 * $gutterSize);
+            margin-right: calc(2 * $gutterSize);
         }
     }
 
     .Grid--withExtraWideGutter > .Grid-cell {
-        padding-left: (2px * @gutterSize);
-        padding-right: (2px * @gutterSize);
+        padding-left: calc(2 * $gutterSize);
+        padding-right: calc(2 * $gutterSize);
     }
 }
 
@@ -132,14 +132,14 @@
 /* Gutters above and below a Grid cell */
 
 .Grid--withGutterY {
-    margin-top: (-1px * @gutterSize);
-    margin-bottom: (-1px * @gutterSize);
+    margin-top: calc(-1 * $gutterSize);
+    margin-bottom: calc(-1 * $gutterSize);
     line-height: 0;
 }
 
 .Grid--withGutterY > .Grid-cell {
-    margin-top: (0.5px * @gutterSize);
-    margin-bottom: (0.5px * @gutterSize);
+    margin-top: calc(0.5 * $gutterSize);
+    margin-bottom: calc(0.5 * $gutterSize);
 }
 
 .Grid--withGutterWideY > .Grid-cell {

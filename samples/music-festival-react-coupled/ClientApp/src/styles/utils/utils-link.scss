@@ -1,5 +1,3 @@
-@import (reference) '../common/variables.less';
-
 /**
 * Clean link
 *
@@ -52,5 +50,5 @@
 * Changes a link to look like plain text.
 */
 .u-linkText {
-    color: @colorText;
+    color: $colorText;
 }

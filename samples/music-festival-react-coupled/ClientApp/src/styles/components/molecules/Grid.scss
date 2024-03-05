@@ -1,5 +1,3 @@
-@import '../../common/variables.less';
-
 /*#
 **Core grid component**
 
@@ -11,13 +9,13 @@ widths and offsets should be applied to child grid cells.
 
 /* stylelint-disable declaration-property-unit-whitelist, no-duplicate-selectors */
 
-@Grid-gutterXsm: unit((@spaceXSmall * @baseFontSize), px);
-@Grid-gutterSm: unit((@spaceSmall * @baseFontSize), px);
-@Grid-gutterMd: unit((@spaceMedium * @baseFontSize), px);
-@Grid-gutterLg: unit((@spaceLarge * @baseFontSize), px);
-@Grid-gutterXlg: unit((@spaceXLarge * @baseFontSize), px);
+$Grid-gutterXsm: calc($spaceXSmall * $baseFontSize);
+$Grid-gutterSm: calc($spaceSmall * $baseFontSize);
+$Grid-gutterMd: calc($spaceMedium * $baseFontSize);
+$Grid-gutterLg: calc($spaceLarge * $baseFontSize);
+$Grid-gutterXlg: calc($spaceXLarge * $baseFontSize);
 
-@Grid-gutterDefault: @Grid-gutterLg;
+$Grid-gutterDefault: $Grid-gutterLg;
 
 .Grid {
     display: flex;
@@ -156,99 +154,99 @@ widths and offsets should be applied to child grid cells.
     /**
     * Horizontal gutters (left & right)
     */
-    .Grid--gutterHorizontal(@gutter) {
-        margin-left: (-0.5 * @gutter);
-        margin-right: (-0.5 * @gutter);
+    @mixin Grid--gutterHorizontal($gutter) {
+        margin-left: (-0.5 * $gutter);
+        margin-right: (-0.5 * $gutter);
 
         & > .Grid-cell {
-            padding-left: (0.5 * @gutter);
-            padding-right: (0.5 * @gutter);
+            padding-left: (0.5 * $gutter);
+            padding-right: (0.5 * $gutter);
         }
     }
 
     // Gutter Horizontal Default
     &.Grid--gutterH,
     &.Grid--gutterA {
-        .Grid--gutterHorizontal(@Grid-gutterDefault);
+        @include Grid--gutterHorizontal($Grid-gutterDefault);
     }
 
     // Gutter Horizontal  XSmall
     &.Grid--gutterHxsm,
     &.Grid--gutterAxsm {
-        .Grid--gutterHorizontal(@Grid-gutterXsm);
+        @include Grid--gutterHorizontal($Grid-gutterXsm);
     }
 
     // Gutter Horizontal  Small
     &.Grid--gutterHsm,
     &.Grid--gutterAsm {
-        .Grid--gutterHorizontal(@Grid-gutterSm);
+        @include Grid--gutterHorizontal($Grid-gutterSm);
     }
 
     // Gutter Horizontal  Medium
     &.Grid--gutterHmd,
     &.Grid--gutterAmd {
-        .Grid--gutterHorizontal(@Grid-gutterMd);
+        @include Grid--gutterHorizontal($Grid-gutterMd);
     }
 
     // Gutter Horizontal  Large
     &.Grid--gutterHlg,
     &.Grid--gutterAlg {
-        .Grid--gutterHorizontal(@Grid-gutterLg);
+        @include Grid--gutterHorizontal($Grid-gutterLg);
     }
 
     // Gutter Horizontal  XLarge
     &.Grid--gutterHxlg,
     &.Grid--gutterAxlg {
-        .Grid--gutterHorizontal(@Grid-gutterXlg);
+        @include Grid--gutterHorizontal($Grid-gutterXlg);
     }
 
     /**
     * Vertical gutters (top & bottom)
     */
-    .Grid--gutterVertical(@gutter) {
-        margin-top: (-0.5 * @gutter);
-        margin-bottom: (-0.5 * @gutter);
+    @mixin Grid--gutterVertical($gutter) {
+        margin-top: (-0.5 * $gutter);
+        margin-bottom: (-0.5 * $gutter);
 
         & > .Grid-cell {
-            padding-top: (0.5 * @gutter);
-            padding-bottom: (0.5 * @gutter);
+            padding-top: (0.5 * $gutter);
+            padding-bottom: (0.5 * $gutter);
         }
     }
 
     // Gutter Vertical Default
     &.Grid--gutterV,
     &.Grid--gutterA {
-        .Grid--gutterVertical(@Grid-gutterDefault);
+        @include Grid--gutterVertical($Grid-gutterDefault);
     }
 
     // Gutter Vertical XSmall
     &.Grid--gutterVxsm,
     &.Grid--gutterAxsm {
-        .Grid--gutterVertical(@Grid-gutterXsm);
+        @include Grid--gutterVertical($Grid-gutterXsm);
     }
 
     // Gutter Vertical Small
     &.Grid--gutterVsm,
     &.Grid--gutterAsm {
-        .Grid--gutterVertical(@Grid-gutterSm);
+        @include Grid--gutterVertical($Grid-gutterSm);
     }
 
     // Gutter Vertical Medium
     &.Grid--gutterVmd,
     &.Grid--gutterAmd {
-        .Grid--gutterVertical(@Grid-gutterMd);
+        @include Grid--gutterVertical($Grid-gutterMd);
     }
 
     // Gutter Vertical Large
     &.Grid--gutterVlg,
     &.Grid--gutterAlg {
-        .Grid--gutterVertical(@Grid-gutterLg);
+        @include Grid--gutterVertical($Grid-gutterLg);
     }
 
     // Gutter Vertical XLarge
     &.Grid--gutterVxlg,
     &.Grid--gutterAxlg {
-        .Grid--gutterVertical(@Grid-gutterXlg);
+        @include Grid--gutterVertical($Grid-gutterXlg);
     }
 }
 

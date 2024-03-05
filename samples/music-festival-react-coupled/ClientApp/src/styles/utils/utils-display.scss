@@ -1,5 +1,3 @@
-@import (reference) '../common/variables.less';
-
 /* stylelint-disable selector-no-qualifying-type */
 
 /**
@@ -65,47 +63,41 @@
 * Show/hide depending on Media Query breakpoints.
 */
 
-.u-state(@prefixXSmall, @bpXSmall);
-.u-state(@prefixSmall, @bpSmall);
-.u-state(@prefixMedium, @bpMedium);
-.u-state(@prefixLarge, @bpLarge);
-.u-state(@prefixXLarge, @bpXLarge);
-
-.u-state(@prefix: ~'', @breakpoint) {
+@mixin u-state($prefix: '', $breakpoint) {
     // when no active media query, hide the element
-    .u-@{prefix}block,
-    .u-@{prefix}inline,
-    .u-@{prefix}inlineBlock,
-    .u-@{prefix}tableCell,
-    .u-@{prefix}flex {
-        &:extend(.u-hidden);
+    .u-#{$prefix}block,
+    .u-#{$prefix}inline,
+    .u-#{$prefix}inlineBlock,
+    .u-#{$prefix}tableCell,
+    .u-#{$prefix}flex {
+        @extend .u-hidden;
     }
 
-    @media @breakpoint {
+    @media only screen and (min-width: $breakpoint), print {
         // hide element in this media query
-        .u-@{prefix}hidden {
+        .u-#{$prefix}hidden {
             display: none !important;
         }
 
         // show element in this media query
-        .u-@{prefix}block {
+        .u-#{$prefix}block {
             display: block !important;
         }
 
-        .u-@{prefix}inline {
+        .u-#{$prefix}inline {
             display: inline !important;
         }
 
-        .u-@{prefix}inlineBlock {
+        .u-#{$prefix}inlineBlock {
             display: inline-block !important;
             max-width: 100%; /* 1 */
         }
 
-        .u-@{prefix}tableCell {
+        .u-#{$prefix}tableCell {
             display: table-cell !important;
         }
 
-        .u-@{prefix}flex {
+        .u-#{$prefix}flex {
             display: flex !important;
 
             .is-no-flexbox & {
@@ -115,8 +107,14 @@
     }
 }
 
+@include u-state($prefixXSmall, $widthXSmall);
+@include u-state($prefixSmall, $widthSmall);
+@include u-state($prefixMedium, $widthMedium);
+@include u-state($prefixLarge, $widthLarge);
+@include u-state($prefixXLarge, $widthXLarge);
+
 .u-md-show {
-    @media @bpMedium {
+    @include bpMedium {
         display: block;
     }
 }

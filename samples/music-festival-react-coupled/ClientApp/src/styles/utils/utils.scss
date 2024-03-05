@@ -138,7 +138,7 @@ u-slider {
         left: 5px;
         right: 5px;
         height: 30px;
-        background: url('@{basePath}/Images/arrow-grey.svg') no-repeat bottom
+        background: url('#{$basePath}/Images/arrow-grey.svg') no-repeat bottom
             center;
         background-size: 100% auto;
     }
@@ -160,7 +160,7 @@ u-slider {
     list-style: none;
 }
 
-@media @bpXSmall {
+@include bpXSmall {
     .u-xsm-listStyleVertical {
         list-style: none;
         padding-left: 0;
@@ -178,7 +178,7 @@ u-slider {
         }
     }
 }
-@media @bpSmall {
+@include bpSmall {
     .u-sm-listStyleVertical {
         list-style: none;
         padding-left: 0;
@@ -196,7 +196,7 @@ u-slider {
         }
     }
 }
-@media @bpMedium {
+@include bpMedium {
     .u-md-listStyleVertical {
         list-style: none;
         padding-left: 0;
@@ -214,7 +214,7 @@ u-slider {
         }
     }
 }
-@media @bpLarge {
+@include bpLarge {
     .u-lg-listStyleVertical {
         list-style: none;
         padding-left: 0;
@@ -232,7 +232,7 @@ u-slider {
         }
     }
 }
-@media @bpXLarge {
+@include bpXLarge {
     .u-xlg-listStyleVertical {
         list-style: none;
         padding-left: 0;

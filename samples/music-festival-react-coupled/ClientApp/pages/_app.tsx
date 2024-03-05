@@ -1,8 +1,8 @@
-import '@/styles/globals.scss';
 import { defaultConfig } from '@episerver/content-delivery';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
+import '../src/styles/global.scss';
 
 export default function App({ Component, pageProps }: AppProps) {
     const router = useRouter();

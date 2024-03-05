@@ -1,5 +1,3 @@
-@import (reference) '../common/variables.less';
-
 /*
     Size Utility
 
@@ -7,9 +5,9 @@
     The classes are only active from a specified breakpoint.
 
     For example if you apply .u-md-size1of2 to an element
-    it will get width 50% when the screen-width is larger than medium width (@bpMedium).
+    it will get width 50% when the screen-width is larger than medium width ($bpMedium).
 
-    Adding another class of .u-lg-size1of4 would mean the element gets 25% when @bpLarge breakpoint gets active.
+    Adding another class of .u-lg-size1of4 would mean the element gets 25% when $bpLarge breakpoint gets active.
 */
 
 .u-sizeFull,
@@ -21,26 +19,15 @@
     width: auto !important;
 }
 
-.u-sizeMediaQuery(@prefixXSmall, @bpXSmall); // X-Small and wider
-.u-sizeMediaQuery(@prefixSmall, @bpSmall); // Small and wider
-.u-sizeMediaQuery(@prefixMedium, @bpMedium); // Medium and wider
-.u-sizeMediaQuery(@prefixLarge, @bpLarge); // Large and wider
-
-.u-sizeMediaQuery(@prefix: ~'', @breakpoint) {
-    @media @breakpoint {
-        .u-size(@prefix);
-    }
-}
-
-.u-size(@prefix: ~'') {
+@mixin u-size($prefix: '') {
     /* Intrinsic widths
     ========================================================================== */
 
     /**
     * Make an element the width of its parent.
     */
-    .u-@{prefix}sizeFull,
-    .u-@{prefix}size1of1 {
+    .u-#{$prefix}sizeFull,
+    .u-#{$prefix}size1of1 {
         width: 100% !important;
     }
 
@@ -48,7 +35,7 @@
     * Make an element fill the remaining space.
     * N.B. This will hide overflow.
     */
-    .u-@{prefix}sizeFill {
+    .u-#{$prefix}sizeFill {
         display: block !important;
         overflow: hidden !important;
         width: auto !important;
@@ -66,126 +53,137 @@
     *    http://git.io/vllMD
     */
 
-    [class*='u-@{prefix}size'] {
+    [class*='u-#{$prefix}size'] {
         flex-basis: auto !important; /* 1 */
     }
 
-    .u-@{prefix}size1of12 {
+    .u-#{$prefix}size1of12 {
         width: (100% * 1 / 12) !important;
     }
 
-    .u-@{prefix}size1of10 {
+    .u-#{$prefix}size1of10 {
         width: 10% !important;
     }
 
-    .u-@{prefix}size1of8 {
+    .u-#{$prefix}size1of8 {
         width: 12.5% !important;
     }
 
-    .u-@{prefix}size1of6,
-    .u-@{prefix}size2of12 {
+    .u-#{$prefix}size1of6,
+    .u-#{$prefix}size2of12 {
         width: (100% * 1 / 6) !important;
     }
 
-    .u-@{prefix}size1of5,
-    .u-@{prefix}size2of10 {
+    .u-#{$prefix}size1of5,
+    .u-#{$prefix}size2of10 {
         width: 20% !important;
     }
 
-    .u-@{prefix}size1of4,
-    .u-@{prefix}size2of8,
-    .u-@{prefix}size3of12 {
+    .u-#{$prefix}size1of4,
+    .u-#{$prefix}size2of8,
+    .u-#{$prefix}size3of12 {
         width: 25% !important;
     }
 
-    .u-@{prefix}size3of10 {
+    .u-#{$prefix}size3of10 {
         width: 30% !important;
     }
 
-    .u-@{prefix}size1of3,
-    .u-@{prefix}size2of6,
-    .u-@{prefix}size4of12 {
+    .u-#{$prefix}size1of3,
+    .u-#{$prefix}size2of6,
+    .u-#{$prefix}size4of12 {
         width: (100% * 1 / 3) !important;
     }
 
-    .u-@{prefix}size3of8 {
+    .u-#{$prefix}size3of8 {
         width: 37.5% !important;
     }
 
-    .u-@{prefix}size2of5,
-    .u-@{prefix}size4of10 {
+    .u-#{$prefix}size2of5,
+    .u-#{$prefix}size4of10 {
         width: 40% !important;
     }
 
-    .u-@{prefix}size5of12 {
+    .u-#{$prefix}size5of12 {
         width: (100% * 5 / 12) !important;
     }
 
-    .u-@{prefix}size1of2,
-    .u-@{prefix}size2of4,
-    .u-@{prefix}size3of6,
-    .u-@{prefix}size4of8,
-    .u-@{prefix}size5of10,
-    .u-@{prefix}size6of12 {
+    .u-#{$prefix}size1of2,
+    .u-#{$prefix}size2of4,
+    .u-#{$prefix}size3of6,
+    .u-#{$prefix}size4of8,
+    .u-#{$prefix}size5of10,
+    .u-#{$prefix}size6of12 {
         width: 50% !important;
     }
 
-    .u-@{prefix}size7of12 {
+    .u-#{$prefix}size7of12 {
         width: (100% * 7 / 12) !important;
     }
 
-    .u-@{prefix}size3of5,
-    .u-@{prefix}size6of10 {
+    .u-#{$prefix}size3of5,
+    .u-#{$prefix}size6of10 {
         width: 60% !important;
     }
 
-    .u-@{prefix}size5of8 {
+    .u-#{$prefix}size5of8 {
         width: 62.5% !important;
     }
 
-    .u-@{prefix}size2of3,
-    .u-@{prefix}size4of6,
-    .u-@{prefix}size8of12 {
+    .u-#{$prefix}size2of3,
+    .u-#{$prefix}size4of6,
+    .u-#{$prefix}size8of12 {
         width: (100% * 2 / 3) !important;
     }
 
-    .u-@{prefix}size7of10 {
+    .u-#{$prefix}size7of10 {
         width: 70% !important;
     }
 
-    .u-@{prefix}size3of4,
-    .u-@{prefix}size6of8,
-    .u-@{prefix}size9of12 {
+    .u-#{$prefix}size3of4,
+    .u-#{$prefix}size6of8,
+    .u-#{$prefix}size9of12 {
         width: 75% !important;
     }
 
-    .u-@{prefix}size4of5,
-    .u-@{prefix}size8of10 {
+    .u-#{$prefix}size4of5,
+    .u-#{$prefix}size8of10 {
         width: 80% !important;
     }
 
-    .u-@{prefix}size5of6,
-    .u-@{prefix}size10of12 {
+    .u-#{$prefix}size5of6,
+    .u-#{$prefix}size10of12 {
         width: (100% * 5 / 6) !important;
     }
 
-    .u-@{prefix}size7of8 {
+    .u-#{$prefix}size7of8 {
         width: 87.5% !important;
     }
 
-    .u-@{prefix}size6of9 {
+    .u-#{$prefix}size6of9 {
         width: (100% * 6 / 9) !important;
     }
 
-    .u-@{prefix}size3of9 {
+    .u-#{$prefix}size3of9 {
         width: (100% * 3 / 9) !important;
     }
 
-    .u-@{prefix}size9of10 {
+    .u-#{$prefix}size9of10 {
         width: 90% !important;
     }
 
-    .u-@{prefix}size11of12 {
+    .u-#{$prefix}size11of12 {
         width: (100% * 11 / 12) !important;
     }
 }
+
+@mixin u-sizeMediaQuery($prefix: '', $breakpoint) {
+    @media only screen and (min-width: $breakpoint), print {
+        @include u-size($prefix);
+    }
+}
+
+@include u-sizeMediaQuery($prefixXSmall, $widthXSmall); // X-Small and wider
+@include u-sizeMediaQuery($prefixSmall, $widthSmall); // Small and wider
+@include u-sizeMediaQuery($prefixMedium, $widthMedium); // Medium and wider
+@include u-sizeMediaQuery($prefixLarge, $widthLarge); // Large and wider

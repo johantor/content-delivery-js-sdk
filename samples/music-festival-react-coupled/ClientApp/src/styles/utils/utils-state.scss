@@ -48,54 +48,54 @@ th.u-isShown {
 
 /* Show/hide depending on current breakpoint */
 
-.u-@{prefixXSmall}isShown,
-.u-@{prefixXSmall}isShownInline,
-.u-@{prefixXSmall}isShownInlineBlock,
-.u-@{prefixSmall}isShown,
-.u-@{prefixSmall}isShownInline,
-.u-@{prefixSmall}isShownInlineBlock,
-.u-@{prefixMedium}isShown,
-.u-@{prefixMedium}isShownInline,
-.u-@{prefixMedium}isShownInlineBlock,
-.u-@{prefixLarge}isShown,
-.u-@{prefixLarge}isShownInline,
-.u-@{prefixLarge}isShownInlineBlock,
-.u-@{prefixXLarge}isShown,
-.u-@{prefixXLarge}isShownInline,
-.u-@{prefixXLarge}isShownInlineBlock {
+.u-#{$prefixXSmall}isShown,
+.u-#{$prefixXSmall}isShownInline,
+.u-#{$prefixXSmall}isShownInlineBlock,
+.u-#{$prefixSmall}isShown,
+.u-#{$prefixSmall}isShownInline,
+.u-#{$prefixSmall}isShownInlineBlock,
+.u-#{$prefixMedium}isShown,
+.u-#{$prefixMedium}isShownInline,
+.u-#{$prefixMedium}isShownInlineBlock,
+.u-#{$prefixLarge}isShown,
+.u-#{$prefixLarge}isShownInline,
+.u-#{$prefixLarge}isShownInlineBlock,
+.u-#{$prefixXLarge}isShown,
+.u-#{$prefixXLarge}isShownInline,
+.u-#{$prefixXLarge}isShownInlineBlock {
     display: none !important;
 }
-.mediaQueryUtils(@prefix: ~'', @breakpoint) {
-    @media @breakpoint {
-        .u-@{prefix}isShown {
+@mixin mediaQueryUtils($prefix: '', $breakpoint) {
+    @media only screen and (min-width: $breakpoint), print {
+        .u-#{$prefix}isShown {
             display: block !important;
         }
-        .u-@{prefix}isShownInlineBlock {
+        .u-#{$prefix}isShownInlineBlock {
             display: inline-block !important;
         }
-        .u-@{prefix}isShownInline {
+        .u-#{$prefix}isShownInline {
             display: inline-block !important;
         }
-        th.u-@{prefix}isShown,
-        td.u-@{prefix}isShown {
+        th.u-#{$prefix}isShown,
+        td.u-#{$prefix}isShown {
             display: table-cell !important;
         }
 
-        .u-@{prefix}isHidden {
+        .u-#{$prefix}isHidden {
             display: none !important;
         }
 
-        .u-@{prefix}inlineBlock {
+        .u-#{$prefix}inlineBlock {
             display: inline-block !important;
         }
     }
 }
 
-.mediaQueryUtils(@prefixXSmall, @bpXSmall);
-.mediaQueryUtils(@prefixSmall, @bpSmall);
-.mediaQueryUtils(@prefixMedium, @bpMedium);
-.mediaQueryUtils(@prefixLarge, @bpLarge);
-.mediaQueryUtils(@prefixXLarge, @bpXLarge);
+@include mediaQueryUtils($prefixXSmall, $widthXSmall);
+@include mediaQueryUtils($prefixSmall, $widthSmall);
+@include mediaQueryUtils($prefixMedium, $widthMedium);
+@include mediaQueryUtils($prefixLarge, $widthLarge);
+@include mediaQueryUtils($prefixXLarge, $widthXLarge);
 
 /**
 * Completely remove from the flow but leave available to screen readers.

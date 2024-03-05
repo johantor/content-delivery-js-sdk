@@ -1,5 +1,4 @@
-@import (css)
-    url('https://fonts.googleapis.com/css?family=Barlow:400,700|Ubuntu:400,700');
+@import url('https://fonts.googleapis.com/css?family=Barlow:400,700|Ubuntu:400,700');
 
 html {
     -webkit-font-smoothing: antialiased;
@@ -13,9 +12,9 @@ html {
 }
 
 body {
-    background-color: @backgroundColor;
-    color: @colorWhite;
-    font: 400 100%/1.5 @fontFamilyPrimary;
+    background-color: $backgroundColor;
+    color: $colorWhite;
+    font: 400 100%/1.5 $fontFamilyPrimary;
     height: 100%;
     margin: 0;
 }
@@ -25,12 +24,12 @@ body {
     text-shadow: none;
 }
 
-// NOTE: heading stylings can be found in Heading.less
+// NOTE: heading stylings can be found in Heading.scss
 p {
-    font-family: @fontFamilyPrimary;
+    font-family: $fontFamilyPrimary;
     font-size: 16px;
 
-    @media @bpMedium {
+    @include bpMedium {
         font-size: 20px;
     }
 
@@ -54,7 +53,7 @@ ul {
 
 main {
     margin: 5em auto;
-    background-image: url('../../images/wave.svg');
+    background-image: url('../../assets/images/wave.svg');
     background-repeat: no-repeat;
     background-position: right top;
 }
@@ -78,7 +77,7 @@ main {
 */
 
 a {
-    color: @colorLink;
+    color: $colorLink;
     text-decoration: none;
     transition: color 250ms ease-out;
 
@@ -113,7 +112,7 @@ address {
 .pullquote,
 blockquote {
     border-left: none;
-    font-family: @fontHeading;
+    font-family: $fontHeading;
     font-size: 3.125rem;
     font-weight: 300;
     line-height: 1;
@@ -170,13 +169,13 @@ textarea {
     font-family: inherit;
     border: 2px solid #ccc;
     border-radius: 4px;
-    padding: @spaceXSmall;
+    padding: $spaceXSmall;
     box-sizing: border-box;
 
     &:disabled {
         background: lighten(#ccc, 10%);
         opacity: 0.8;
-        color: @colorTextLight;
+        color: $colorTextLight;
         cursor: not-allowed;
     }
 }
@@ -208,16 +207,16 @@ input[type='text'] {
     background: hsla(0, 0%, 100%, 0.12);
     border: 0;
     border-radius: 20px;
-    color: @colorWhite;
+    color: $colorWhite;
     display: block;
-    font: 0.75rem @fontSubHeading;
+    font: 0.75rem $fontSubHeading;
     height: 40px;
     margin-bottom: 10px;
     padding: 0 20px;
     width: 100%;
 
     &::placeholder {
-        color: @colorWhite;
+        color: $colorWhite;
         text-align: center;
         text-transform: uppercase;
     }
@@ -245,7 +244,7 @@ input[type='url'],
 select,
 textarea {
     &:focus {
-        box-shadow: 0 0 3px 0 @colorBlue;
+        box-shadow: 0 0 3px 0 $colorBlue;
         outline: 0;
     }
 }
@@ -264,8 +263,8 @@ label {
 .field-validation-valid,
 .field-validation-error {
     display: block;
-    margin-top: @spaceSmall;
-    font-size: @textSizeSmall;
+    margin-top: $spaceSmall;
+    font-size: $textSizeSmall;
 }
 .field-validation-valid,
 .field-validation-valid.Status {
@@ -284,7 +283,7 @@ label {
 */
 
 @media print {
-    @page {
+    .Page {
         margin: 0.5cm;
     }
 
@@ -360,7 +359,7 @@ label {
 
 .buttons {
     margin: 20px;
-    border: 1px solid @colorWhite;
+    border: 1px solid $colorWhite;
     border-radius: 20px;
     display: flex;
     flex-direction: row;
@@ -372,7 +371,7 @@ label {
         position: relative;
         border: none;
         background: none;
-        font: 12px/26px @fontSubHeading;
+        font: 12px/26px $fontSubHeading;
         text-transform: uppercase;
         border-radius: 0;
         &:focus {
@@ -386,7 +385,7 @@ label {
             left: 0;
             width: 1px;
             height: 100%;
-            background: @colorWhite;
+            background: $colorWhite;
         }
         &:first-child::before {
             display: none;
@@ -400,13 +399,13 @@ label {
         margin: 20px 0 0;
         border-radius: 0;
         border: 0;
-        background: @colorBlue;
-        color: @colorTurquoise;
+        background: $colorBlue;
+        color: $colorTurquoise;
 
         button {
             &.active {
-                background: @colorTurquoise;
-                color: @colorBlue;
+                background: $colorTurquoise;
+                color: $colorBlue;
             }
             &::before {
                 display: none;
