@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import BlockComponentSelector from '../BlockComponentSelector';
 import EpiserverBlockProps from './EpiserverBlockProps';
 
@@ -10,4 +10,4 @@ const EpiserverBlock = ({ content }: EpiserverBlockProps): ReactElement => {
     );
 };
 
-export default EpiserverBlock;
+export default React.memo(EpiserverBlock);

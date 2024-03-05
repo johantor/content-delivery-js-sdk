@@ -3,7 +3,7 @@ import BackButton from '@/components/BackButton';
 import EpiserverProperty from '@/components/EpiserverProperty';
 import LanguageSelector from '@/components/LanguageSelector';
 import { addEditAttributes } from '@/utils/episerverAttributes';
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import ArtistDetailsPageProps from './ArtistDetailsPageProps';
 
 const ArtistDetailsPage = ({
@@ -74,4 +74,4 @@ const ArtistDetailsPage = ({
     );
 };
 
-export default ArtistDetailsPage;
+export default React.memo(ArtistDetailsPage);

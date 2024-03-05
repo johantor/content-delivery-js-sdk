@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import ConditionalImage from '../ConditionalImage';
 import ImageFileProps from './ImageFileProps';
 
@@ -19,4 +19,4 @@ const ImageFile = ({ content }: ImageFileProps): ReactElement => {
     );
 };
 
-export default ImageFile;
+export default React.memo(ImageFile);

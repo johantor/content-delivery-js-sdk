@@ -5,7 +5,7 @@ import EpiserverContentArea from '@/components/EpiserverContentArea';
 import Hero from '@/components/Hero';
 import LanguageSelector from '@/components/LanguageSelector';
 import { addEditAttributes } from '@/utils/episerverAttributes';
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import LandingPageProps from './LandingPageProps';
 
 const LandingPage = ({ content }: LandingPageProps): ReactElement => {
@@ -65,4 +65,4 @@ const LandingPage = ({ content }: LandingPageProps): ReactElement => {
         </div>
     );
 };
-export default LandingPage;
+export default React.memo(LandingPage);

@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import EpiserverGenericBlockProps from './EpiserverGenericBlockProps';
 
 const EpiserverGenericBlock = ({
@@ -17,4 +17,4 @@ const EpiserverGenericBlock = ({
     );
 };
 
-export default EpiserverGenericBlock;
+export default React.memo(EpiserverGenericBlock);

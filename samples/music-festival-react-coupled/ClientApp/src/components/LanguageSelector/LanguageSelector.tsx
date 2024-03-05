@@ -4,7 +4,7 @@ import React, { ReactElement } from 'react';
 import EpiserverViewModeLink from '../EpiserverViewModeLink';
 import LanguageSelectorProps from './LanguageSelectorProps';
 
-const BackButton = ({
+const LanguageSelector = ({
     language,
     existingLanguages,
 }: LanguageSelectorProps): ReactElement => {
@@ -26,4 +26,4 @@ const BackButton = ({
     );
 };
 
-export default React.memo(BackButton);
+export default React.memo(LanguageSelector);

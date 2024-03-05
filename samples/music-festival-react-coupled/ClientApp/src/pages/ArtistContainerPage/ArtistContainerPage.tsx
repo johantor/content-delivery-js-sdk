@@ -6,7 +6,7 @@ import LanguageSelector from '@/components/LanguageSelector';
 import EpiContent from '@/types/EpiContent';
 import { addEditAttributes } from '@/utils/episerverAttributes';
 import { ContentLoader } from '@episerver/content-delivery';
-import { ReactElement, useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { ArtistDetailsProps } from '../ArtistDetailsPage/ArtistDetailsPageProps';
 
 const ArtistContainerPage = ({ content }: EpiContent): ReactElement => {
@@ -92,4 +92,4 @@ const ArtistContainerPage = ({ content }: EpiContent): ReactElement => {
     );
 };
 
-export default ArtistContainerPage;
+export default React.memo(ArtistContainerPage);

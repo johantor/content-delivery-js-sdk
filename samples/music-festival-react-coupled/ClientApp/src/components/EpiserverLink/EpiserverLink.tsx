@@ -2,7 +2,7 @@ import useResolvedContent from '@/hooks/useResolvedContent';
 import classNames from '@/utils/classNames';
 import { ContextMode } from '@episerver/content-delivery';
 import Link from 'next/link';
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import EpiserverLinkProps from './EpiserverLinkProps';
 
 const EpiserverLink = ({
@@ -50,4 +50,4 @@ const EpiserverLink = ({
         );
 };
 
-export default EpiserverLink;
+export default React.memo(EpiserverLink);

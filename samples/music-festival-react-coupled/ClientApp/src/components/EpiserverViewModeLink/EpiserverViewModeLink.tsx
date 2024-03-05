@@ -1,7 +1,7 @@
 import useResolvedContent from '@/hooks/useResolvedContent';
 import classNames from '@/utils/classNames';
 import { ContextMode } from '@episerver/content-delivery';
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import EpiserverLink from '../EpiserverLink';
 import EpiserverLinkProps from '../EpiserverLink/EpiserverLinkProps';
 import styles from './EpiserverViewModeLink.module.scss';
@@ -27,4 +27,4 @@ const EpiserverViewModeLink = ({
     );
 };
 
-export default EpiserverViewModeLink;
+export default React.memo(EpiserverViewModeLink);
