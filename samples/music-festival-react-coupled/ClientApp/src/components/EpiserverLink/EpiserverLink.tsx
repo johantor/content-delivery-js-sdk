@@ -1,4 +1,5 @@
 import useResolvedContent from '@/hooks/useResolvedContent';
+import classNames from '@/utils/classNames';
 import { ContextMode } from '@episerver/content-delivery';
 import Link from 'next/link';
 import { ReactElement } from 'react';
@@ -32,15 +33,17 @@ const EpiserverLink = ({
             : url;
     };
 
+    const classes = classNames(['EPiLink', className]);
+
     if (useNextLink)
         return (
-            <Link href={relativeUrl()} className={`EPiLink ${className || ''}`}>
+            <Link href={relativeUrl()} className={classes}>
                 {children}
             </Link>
         );
     else
         return (
-            <a href={relativeUrl()} className={`EPiLink ${className || ''}`}>
+            <a href={relativeUrl()} className={classes}>
                 {children}
             </a>
         );

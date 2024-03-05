@@ -1,5 +1,7 @@
 import ArtistImage from '@/components/ArtistImage';
 import BackButton from '@/components/BackButton';
+import EpiserverProperty from '@/components/EpiserverProperty';
+import LanguageSelector from '@/components/LanguageSelector';
 import { addEditAttributes } from '@/utils/episerverAttributes';
 import { ReactElement } from 'react';
 import ArtistDetailsPageProps from './ArtistDetailsPageProps';
@@ -13,17 +15,14 @@ const ArtistDetailsPage = ({
 
     const friendlyStartTime = friendlyDateTime(content.performanceStartTime);
     const friendlyEndTime = friendlyDateTime(content.performanceEndTime);
-
-    console.log(content);
-
     return (
         <div className="ArtistDetailsPage">
             <nav className="Page-container PageHeader NavBar">
                 <BackButton previousUrl={content.parentLink.url} />
-                {/* <LanguageSelector
-                        existingLanguages={content.existingLanguages}
-                        language={content.language}
-                    /> */}
+                <LanguageSelector
+                    existingLanguages={content.existingLanguages}
+                    language={content.language}
+                />
             </nav>
 
             <div className="Page-container u-posRelative">
@@ -31,14 +30,15 @@ const ArtistDetailsPage = ({
                     name={content.artistName}
                     imageUrl={content.artistPhoto}
                 />
-
                 <div className="top">
-                    <h1>{content.artistName}</h1>
+                    <h1 {...addEditAttributes('ArtistName')}>
+                        {content.artistName}
+                    </h1>
                 </div>
 
-                {/* <EpiserverProperty property-name="ArtistPhoto" />
-                    <EpiserverProperty property-name="ArtistGenre" />
-                    <EpiserverProperty property-name="ArtistIsHeadliner" /> */}
+                <EpiserverProperty propertyName="ArtistPhoto" />
+                <EpiserverProperty propertyName="ArtistGenre" />
+                <EpiserverProperty propertyName="ArtistIsHeadliner" />
 
                 <div className="artist-information">
                     <p

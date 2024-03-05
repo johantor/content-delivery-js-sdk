@@ -15,7 +15,7 @@ import useResolvedContent from '../src/hooks/useResolvedContent';
 const Page = () => {
     const router = useRouter();
     const { pending, resolvedContent, updateContentByUrl } =
-        useResolvedContent();
+        useResolvedContent(false);
     const [pageContent, setPageContent] = useState<
         ResolvedContent<ContentData>
     >({} as ResolvedContent<ContentData>);
@@ -58,20 +58,6 @@ const Page = () => {
         router,
         updateContentByUrl,
     ]);
-
-    // console.log(
-    //     'EditMode',
-    //     resolvedContent.mode == ContextMode.Edit ? 'true' : false
-    // );
-
-    // console.log('resolvedContent.status', resolvedContent.status);
-    // console.log(
-    //     'ResolvedContentStatus.Resolved',
-    //     ResolvedContentStatus.Resolved
-    // );
-
-    //const pageType = pageContent.content?.contentType.pop();
-    // const pageComponentName = router.isReady && pageType ? pageType : 'Default';
 
     return (
         <>
