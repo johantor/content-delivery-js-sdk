@@ -1,6 +1,6 @@
-import EpiLanguage from '@/types/EpiLanguage';
+import { Language } from '@episerver/content-delivery';
 
 export default interface LanguageSelectorProps {
-    existingLanguages: EpiLanguage[];
-    language: EpiLanguage;
+    existingLanguages: Language[];
+    language: Language;
 }

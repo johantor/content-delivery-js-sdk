@@ -8,7 +8,7 @@ import BackButtonProps from './BackButtonProps';
 const BackButton = ({ previousUrl }: BackButtonProps): ReactElement => {
     return (
         <div className={styles.backButton}>
-            <EpiserverLink url={previousUrl} className={styles.link}>
+            <EpiserverLink url={previousUrl} className={styles.link} prefetch>
                 <Image src="/back.svg" width="64" height="64" alt="Back" />
             </EpiserverLink>
         </div>

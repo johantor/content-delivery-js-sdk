@@ -9,6 +9,7 @@ const EpiserverLink = ({
     className,
     url,
     children,
+    prefetch,
 }: EpiserverLinkProps): ReactElement => {
     const { resolvedContent } = useResolvedContent();
 
@@ -37,7 +38,7 @@ const EpiserverLink = ({
 
     if (useNextLink)
         return (
-            <Link href={relativeUrl()} className={classes}>
+            <Link href={relativeUrl()} className={classes} prefetch={prefetch}>
                 {children}
             </Link>
         );

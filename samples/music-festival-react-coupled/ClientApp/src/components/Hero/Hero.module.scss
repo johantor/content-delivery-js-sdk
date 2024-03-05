@@ -1,6 +1,7 @@
-.Hero {
-    height: 500px;
+@import '../../styles/common/variables.scss';
 
+.Hero {
+    height: 31.25rem;
     width: 100%;
     display: flex;
     align-items: center;
@@ -19,11 +20,11 @@
         text-align: center;
     }
 
-    &-content {
+    &Content {
         z-index: 10;
     }
 
-    &-image {
+    &Image {
         background-size: cover;
         position: absolute;
         top: 0;

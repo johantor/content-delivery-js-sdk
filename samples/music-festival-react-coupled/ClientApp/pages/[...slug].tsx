@@ -1,6 +1,7 @@
 import {
     ContentData,
     ContextMode,
+    PageData,
     ResolvedContent,
     ResolvedContentStatus,
 } from '@episerver/content-delivery';
@@ -18,7 +19,7 @@ const Page = () => {
         useResolvedContent(false);
     const [pageContent, setPageContent] = useState<
         ResolvedContent<ContentData>
-    >({} as ResolvedContent<ContentData>);
+    >({} as ResolvedContent<PageData>);
     useEffect(() => {
         const fetchData = async () => {
             try {

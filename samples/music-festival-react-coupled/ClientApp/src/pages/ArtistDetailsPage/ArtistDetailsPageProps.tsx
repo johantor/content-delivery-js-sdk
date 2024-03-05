@@ -1,6 +1,7 @@
-import { ContentData } from '@episerver/content-delivery';
+import { EpiPageContent } from '@/types/EpiContent';
+import { PageData } from '@episerver/content-delivery';
 
-export interface ArtistDetailsProps extends ContentData {
+export interface ArtistDetailsProps extends PageData {
     artistDescription: string;
     artistGenre: string;
     artistPhoto: string;
@@ -8,9 +9,8 @@ export interface ArtistDetailsProps extends ContentData {
     performanceEndTime: string;
     performanceStartTime: string;
     stageName: string;
-    url: string;
 }
 
-export default interface ArtistDetailsPageProps {
+export default interface ArtistDetailsPageProps extends EpiPageContent {
     content: ArtistDetailsProps;
 }
