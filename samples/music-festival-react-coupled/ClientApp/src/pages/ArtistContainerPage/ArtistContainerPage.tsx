@@ -2,6 +2,7 @@ import styles from './ArtistContainerPage.module.scss';
 
 import BackButton from '@/components/BackButton';
 import Card from '@/components/Card';
+import LanguageSelector from '@/components/LanguageSelector';
 import EpiContent from '@/types/EpiContent';
 import { addEditAttributes } from '@/utils/episerverAttributes';
 import { ContentLoader } from '@episerver/content-delivery';
@@ -51,13 +52,10 @@ const ArtistContainerPage = ({ content }: EpiContent): ReactElement => {
         <div className={styles.ArtistContainerPage}>
             <nav className="Page-container PageHeader NavBar">
                 <BackButton previousUrl={content.parentLink.url} />
-                {/*
                 <LanguageSelector
                     existingLanguages={content.existingLanguages}
                     language={content.language}
                 />
-
-                */}
             </nav>
 
             <div className="Page-container">
