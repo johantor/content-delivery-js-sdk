@@ -1,5 +1,6 @@
 import ContentBlock from '@/components/ContentBlock';
 import EpiserverGenericBlock from '@/components/EpiserverGenericBlock';
+import ImageFile from '@/components/ImageFile';
 import ArtistContainerPage from '@/pages/ArtistContainerPage';
 import ArtistDetailsPage from '@/pages/ArtistDetailsPage';
 import LandingPage from '@/pages/LandingPage';
@@ -14,13 +15,18 @@ export const pages: Record<string, FunctionComponent | undefined> = {
 };
 
 export const blocks: Record<string, FunctionComponent | undefined> = {
-    ContentBlock: ContentBlock as FunctionComponent,
+    ContentBlock: ContentBlock as unknown as FunctionComponent,
     EpiserverGenericBlock: EpiserverGenericBlock as FunctionComponent,
+};
+
+export const other: Record<string, FunctionComponent | undefined> = {
+    ImageFile: ImageFile as FunctionComponent,
 };
 
 const getComponentTypeForContent = (
     content: ContentData | undefined
 ): FunctionComponent<EpiContent> | undefined => {
+    content?.contentType.join('');
     if (content) {
         const type = content?.contentType[0];
         const template = content?.contentType.slice(-1)[0]; // Get the content of the last element in the array
@@ -32,6 +38,10 @@ const getComponentTypeForContent = (
         } else if (type == 'Block') {
             if (template && blocks[template]) {
                 return blocks[template];
+            }
+        } else {
+            if (template && other[template]) {
+                return other[template];
             }
         }
     }
