@@ -17,12 +17,12 @@ const Page = async () => {
     let pageContent = await getContentByUrl();
 
     switch (pageContent.status) {
-        // case ResolvedContentStatus.NotFound:
-        // case ResolvedContentStatus.AccessDenied:
-        //     notFound();
-        // case ResolvedContentStatus.Unauthorized:
-        //     window.location.href = `/util/login?ReturnUrl=${pathname}`;
-        //     break;
+        case ResolvedContentStatus.NotFound:
+        case ResolvedContentStatus.AccessDenied:
+            notFound();
+        case ResolvedContentStatus.Unauthorized:
+            window.location.href = `/util/login?ReturnUrl=${pathname}`;
+            break;
         default:
             break;
     }
