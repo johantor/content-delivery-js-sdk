@@ -4,9 +4,19 @@ import {
     ContextMode,
     ResolvedContentStatus,
 } from '@episerver/content-delivery';
-import Head from 'next/head';
+import type { Metadata } from 'next';
 import { headers } from 'next/headers';
+import { notFound } from 'next/navigation';
 import Script from 'next/script';
+
+export async function generateMetadata(): Promise<Metadata> {
+    const { getContentByUrl } = getContent();
+    let pageContent = await getContentByUrl();
+
+    return {
+        title: pageContent.content?.name || '',
+    };
+}
 
 const Page = async () => {
     const headersList = headers();
@@ -26,16 +36,11 @@ const Page = async () => {
         default:
             break;
     }
+
     return (
         <>
             {pageContent.status === ResolvedContentStatus.Resolved && (
                 <div>
-                    <Head>
-                        {pageContent.content?.name && (
-                            <title>{pageContent.content.name}</title>
-                        )}
-                    </Head>
-
                     {pageContent.mode == ContextMode.Edit && (
                         <Script
                             src="/episerver/cms/latest/clientresources/communicationinjector.js"
