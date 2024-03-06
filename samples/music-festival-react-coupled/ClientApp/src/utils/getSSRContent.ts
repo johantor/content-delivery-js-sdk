@@ -6,7 +6,7 @@ import {
     defaultConfig,
 } from '@episerver/content-delivery';
 import { cookies, headers } from 'next/headers';
-const getContent = (): {
+const getSSRContent = (): {
     contentLoader: ContentLoader;
     contentResolver: ContentResolver;
     pending: boolean;
@@ -107,4 +107,4 @@ const getContent = (): {
     };
 };
 
-export default getContent;
+export default getSSRContent;

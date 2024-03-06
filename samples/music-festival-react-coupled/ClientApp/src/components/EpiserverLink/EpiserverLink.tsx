@@ -1,5 +1,5 @@
 import classNames from '@/utils/classNames';
-import getContent from '@/utils/getContent';
+import getSSRContent from '@/utils/getSSRContent';
 import { ContextMode } from '@episerver/content-delivery';
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
@@ -11,7 +11,7 @@ const EpiserverLink = ({
     children,
     prefetch,
 }: EpiserverLinkProps): ReactElement => {
-    const { resolvedContent } = getContent();
+    const { resolvedContent } = getSSRContent();
 
     const useNextLink = resolvedContent.mode === ContextMode.Default;
 

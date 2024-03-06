@@ -1,5 +1,5 @@
 import BlockComponentSelector from '@/components/BlockComponentSelector';
-import { default as getContent } from '@/utils/getContent';
+import { default as getSSRContent } from '@/utils/getSSRContent';
 import {
     ContextMode,
     ResolvedContentStatus,
@@ -10,7 +10,7 @@ import { notFound } from 'next/navigation';
 import Script from 'next/script';
 
 export async function generateMetadata(): Promise<Metadata> {
-    const { getContentByUrl } = getContent();
+    const { getContentByUrl } = getSSRContent();
     let pageContent = await getContentByUrl();
 
     return {
@@ -24,7 +24,7 @@ const Page = async () => {
     const headersList = headers();
     const pathname = headersList.get('x-pathname');
 
-    const { getContentByUrl } = getContent();
+    const { getContentByUrl } = getSSRContent();
 
     let pageContent = await getContentByUrl();
 

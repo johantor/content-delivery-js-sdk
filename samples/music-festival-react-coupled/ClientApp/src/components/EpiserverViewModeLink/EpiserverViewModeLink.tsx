@@ -1,5 +1,5 @@
 import classNames from '@/utils/classNames';
-import getContent from '@/utils/getContent';
+import getSSRContent from '@/utils/getSSRContent';
 import { ContextMode } from '@episerver/content-delivery';
 import React, { ReactElement } from 'react';
 import EpiserverLink from '../EpiserverLink';
@@ -11,7 +11,7 @@ const EpiserverViewModeLink = ({
     url,
     children,
 }: EpiserverLinkProps): ReactElement => {
-    const { resolvedContent } = getContent();
+    const { resolvedContent } = getSSRContent();
 
     return (
         <EpiserverLink

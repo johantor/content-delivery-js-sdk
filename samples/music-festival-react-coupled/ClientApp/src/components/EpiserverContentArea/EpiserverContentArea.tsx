@@ -1,6 +1,6 @@
 import classNames from '@/utils/classNames';
 import displayOptions from '@/utils/displayOptions';
-import getContent from '@/utils/getContent';
+import getSSRContent from '@/utils/getSSRContent';
 import { ContextMode } from '@episerver/content-delivery';
 import React, { ReactElement } from 'react';
 import EpiserverBlock from '../EpiserverBlock';
@@ -9,7 +9,7 @@ import EpiserverContentAreaProps from './EpiserverContentAreaProps';
 const EpiserverProperty = ({
     content,
 }: EpiserverContentAreaProps): ReactElement => {
-    const { resolvedContent } = getContent();
+    const { resolvedContent } = getSSRContent();
     const { getDisplayOption } = displayOptions();
 
     return (

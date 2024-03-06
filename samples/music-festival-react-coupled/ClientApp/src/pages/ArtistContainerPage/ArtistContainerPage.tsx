@@ -5,14 +5,14 @@ import Card from '@/components/Card';
 import LanguageSelector from '@/components/LanguageSelector';
 import EpiContent from '@/types/EpiContent';
 import { addEditAttributes } from '@/utils/episerverAttributes';
-import getContent from '@/utils/getContent';
+import getSSRContent from '@/utils/getSSRContent';
 import React, { ReactElement } from 'react';
 import { ArtistDetailsProps } from '../ArtistDetailsPage/ArtistDetailsPageProps';
 
 const ArtistContainerPage = async ({
     content,
 }: EpiContent): Promise<ReactElement> => {
-    const { contentLoader } = getContent();
+    const { contentLoader } = getSSRContent();
     let artists: [string, ArtistDetailsProps[]][] = [];
 
     await contentLoader
