@@ -5,7 +5,7 @@ import {
     ResolvedContent,
     defaultConfig,
 } from '@episerver/content-delivery';
-import { headers } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 const getContent = (): {
     contentLoader: ContentLoader;
     contentResolver: ContentResolver;
@@ -20,6 +20,8 @@ const getContent = (): {
     defaultConfig.apiUrl = process.env.NEXT_PUBLIC_API_URL || '';
     defaultConfig.selectAllProperties = true;
     defaultConfig.expandAllProperties = true;
+
+    // TODO: Look into if this functionality is needed
     // defaultConfig.getUrl = async (url) => {
     //     return new Promise(() => {
     //         if (typeof window !== 'undefined') {
@@ -30,6 +32,24 @@ const getContent = (): {
     //         return url;
     //     });
     // };
+
+    defaultConfig.getHeaders = async () => {
+        // TODO: Doublecheck this functionality
+        // Forward the cookie header when rendering server-side,
+        // making these calls authenticated as well.
+        const cookieStore = cookies();
+        const allCookies = cookieStore.getAll();
+
+        const cookieResponse = allCookies.reduce(
+            (cookies: string[], cookie) => [
+                ...cookies,
+                `${cookie.name}=${cookie.value}`,
+            ],
+            []
+        );
+
+        return { cookie: cookieResponse };
+    };
 
     const headersList = headers();
     const pathname = headersList.get('x-pathname') || '';

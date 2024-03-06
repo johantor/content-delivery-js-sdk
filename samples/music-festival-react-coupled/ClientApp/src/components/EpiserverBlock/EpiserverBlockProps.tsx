@@ -1,6 +1,6 @@
 import { ContentLink } from '@episerver/content-delivery';
 
-export interface EpiserverBlock {
+export interface EpiserverBlockContent {
     contentLink: ContentLink;
     displayOption: string;
     inlineBlock: { contentType: [] };
@@ -8,5 +8,5 @@ export interface EpiserverBlock {
 }
 
 export default interface EpiserverBlockProps {
-    content: EpiserverBlock;
+    content: EpiserverBlockContent;
 }

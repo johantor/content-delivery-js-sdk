@@ -1,5 +1,6 @@
-import { ContentData } from '@episerver/content-delivery';
+import { ContentData, ContextMode } from '@episerver/content-delivery';
 
 export default interface BlockComponentSelectorProps {
     content?: ContentData;
+    mode?: ContextMode;
 }

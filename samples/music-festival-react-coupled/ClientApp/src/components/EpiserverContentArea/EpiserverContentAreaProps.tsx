@@ -1,5 +1,5 @@
-import { EpiserverBlock } from '../EpiserverBlock/EpiserverBlockProps';
+import { EpiserverBlockContent } from '../EpiserverBlock/EpiserverBlockProps';
 
 export default interface EpiserverContentAreaProps {
-    content: EpiserverBlock[];
+    content: EpiserverBlockContent[];
 }

@@ -7,9 +7,10 @@ import BlockComponentSelectorProps from './BlockComponentSelectorProps';
 
 const BlockComponentSelector = ({
     content,
+    mode,
 }: BlockComponentSelectorProps): ReactElement => {
     if (content) {
-        const BlockComponent = getComponentTypeForContent(content);
+        const BlockComponent = getComponentTypeForContent(content, mode);
         if (BlockComponent) {
             return <BlockComponent content={content} />;
         }

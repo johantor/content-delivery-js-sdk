@@ -22,7 +22,8 @@ const EpiserverProperty = ({
                     ])}
                     key={index}
                     data-epi-content-id={
-                        resolvedContent.mode === ContextMode.Edit
+                        resolvedContent.mode === ContextMode.Edit ||
+                        resolvedContent.mode === ContextMode.Preview // TODO: Should this show in preview too?
                             ? block.contentLink.guidValue
                             : null
                     }

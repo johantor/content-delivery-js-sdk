@@ -10,13 +10,15 @@ import LandingPageProps from './LandingPageProps';
 
 const LandingPage = ({ content }: LandingPageProps): ReactElement => {
     // const { showModal } = useModal();
-    console.dir(content);
     return (
         <div className={styles.LandingPage}>
             <nav className="Page-container PageHeader NavBar">
-                {/* <button className="Button buy-ticket-button" onClick={showModal()}>
-                    {{ model.buyTicketBlock.heading }}
-                </button> */}
+                <button
+                    className="Button buy-ticket-button"
+                    // onClick={showModal()}
+                >
+                    {content.buyTicketBlock.heading}
+                </button>
 
                 <LanguageSelector
                     existingLanguages={content.existingLanguages}

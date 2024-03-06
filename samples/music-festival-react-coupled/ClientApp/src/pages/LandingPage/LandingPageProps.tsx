@@ -1,5 +1,5 @@
 import BuyTicketBlockProps from '@/components/BuyTicketBlock/buyTicketBlockProps';
-import { EpiserverBlock } from '@/components/EpiserverBlock/EpiserverBlockProps';
+import { EpiserverBlockContent } from '@/components/EpiserverBlock/EpiserverBlockProps';
 import { EpiPageContent } from '@/types/EpiContent';
 import {
     ContentData,
@@ -18,9 +18,9 @@ interface ArtistsLink extends ContentLink {
 interface LandingPageContent extends PageData {
     artistsLink: ArtistsLink;
     buyTicketBlock: BuyTicketBlockProps;
-    footerContentArea: EpiserverBlock[];
+    footerContentArea: EpiserverBlockContent[];
     heroImage: string;
-    mainContentArea: EpiserverBlock[];
+    mainContentArea: EpiserverBlockContent[];
     subtitle: string;
     title: string;
 }
