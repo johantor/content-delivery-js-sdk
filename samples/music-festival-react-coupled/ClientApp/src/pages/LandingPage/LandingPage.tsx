@@ -1,6 +1,7 @@
 import EpiserverLink from '@/components/EpiserverLink';
 import styles from './LandingPage.module.scss';
 
+import BuyTicketBlock from '@/components/BuyTicketBlock';
 import EpiserverContentArea from '@/components/EpiserverContentArea';
 import Hero from '@/components/Hero';
 import LanguageSelector from '@/components/LanguageSelector';
@@ -53,17 +54,14 @@ const LandingPage = ({ content }: LandingPageProps): ReactElement => {
                     <h6>&copy; Music Festival 2022</h6>
                 </div>
             </footer>
-            {/*
-                <Modal>
-                    <template v-slot:content>
-                        <BuyTicketBlock
-                            :page-property-name="'BuyTicketBlock'"
-                            :heading="model.buyTicketBlock.heading"
-                            :message="model.buyTicketBlock.message"
-                        />
-                    </template>
-                </Modal>
-            */}
+
+            {/* <Modal> */}
+            <BuyTicketBlock
+                pagePropertyName="BuyTicketBlock"
+                heading={content.buyTicketBlock.heading}
+                message={content.buyTicketBlock.message}
+            />
+            {/* </Modal> */}
         </div>
     );
 };

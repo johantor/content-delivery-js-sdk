@@ -1,4 +1,4 @@
-import BuyTicketBlockProps from '@/components/BuyTicketBlock/buyTicketBlockProps';
+import BuyTicketBlockProps from '@/components/BuyTicketBlock/BuyTicketBlockProps';
 import { EpiserverBlockContent } from '@/components/EpiserverBlock/EpiserverBlockProps';
 import { EpiPageContent } from '@/types/EpiContent';
 import {
