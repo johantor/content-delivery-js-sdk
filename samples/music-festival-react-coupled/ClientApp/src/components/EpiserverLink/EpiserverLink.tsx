@@ -1,5 +1,5 @@
-import useResolvedContent from '@/hooks/useResolvedContent';
 import classNames from '@/utils/classNames';
+import getContent from '@/utils/getContent';
 import { ContextMode } from '@episerver/content-delivery';
 import Link from 'next/link';
 import React, { ReactElement } from 'react';
@@ -11,7 +11,7 @@ const EpiserverLink = ({
     children,
     prefetch,
 }: EpiserverLinkProps): ReactElement => {
-    const { resolvedContent } = useResolvedContent();
+    const { resolvedContent } = getContent();
 
     const useNextLink = resolvedContent.mode === ContextMode.Default;
 

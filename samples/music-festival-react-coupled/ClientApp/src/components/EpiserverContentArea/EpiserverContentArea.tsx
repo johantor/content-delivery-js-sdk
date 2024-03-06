@@ -1,6 +1,6 @@
-import useResolvedContent from '@/hooks/useResolvedContent';
 import classNames from '@/utils/classNames';
 import displayOptions from '@/utils/displayOptions';
+import getContent from '@/utils/getContent';
 import { ContextMode } from '@episerver/content-delivery';
 import React, { ReactElement } from 'react';
 import EpiserverBlock from '../EpiserverBlock';
@@ -9,7 +9,7 @@ import EpiserverContentAreaProps from './EpiserverContentAreaProps';
 const EpiserverProperty = ({
     content,
 }: EpiserverContentAreaProps): ReactElement => {
-    const { resolvedContent } = useResolvedContent();
+    const { resolvedContent } = getContent();
     const { getDisplayOption } = displayOptions();
 
     return (

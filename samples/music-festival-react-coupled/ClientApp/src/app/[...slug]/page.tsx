@@ -1,5 +1,5 @@
 import BlockComponentSelector from '@/components/BlockComponentSelector';
-import useResolvedContent from '@/hooks/useResolvedContent';
+import { default as getContent } from '@/utils/getContent';
 import {
     ContextMode,
     ResolvedContentStatus,
@@ -12,7 +12,7 @@ const Page = async () => {
     const headersList = headers();
     const pathname = headersList.get('x-pathname');
 
-    const { getContentByUrl } = useResolvedContent();
+    const { getContentByUrl } = getContent();
 
     let pageContent = await getContentByUrl();
 

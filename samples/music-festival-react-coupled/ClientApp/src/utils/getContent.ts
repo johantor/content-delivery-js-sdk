@@ -6,7 +6,7 @@ import {
     defaultConfig,
 } from '@episerver/content-delivery';
 import { headers } from 'next/headers';
-const useResolvedContent = (): {
+const getContent = (): {
     contentLoader: ContentLoader;
     contentResolver: ContentResolver;
     pending: boolean;
@@ -87,4 +87,4 @@ const useResolvedContent = (): {
     };
 };
 
-export default useResolvedContent;
+export default getContent;

@@ -3,16 +3,16 @@ import styles from './ArtistContainerPage.module.scss';
 import BackButton from '@/components/BackButton';
 import Card from '@/components/Card';
 import LanguageSelector from '@/components/LanguageSelector';
-import useResolvedContent from '@/hooks/useResolvedContent';
 import EpiContent from '@/types/EpiContent';
 import { addEditAttributes } from '@/utils/episerverAttributes';
+import getContent from '@/utils/getContent';
 import React, { ReactElement } from 'react';
 import { ArtistDetailsProps } from '../ArtistDetailsPage/ArtistDetailsPageProps';
 
 const ArtistContainerPage = async ({
     content,
 }: EpiContent): Promise<ReactElement> => {
-    const { contentLoader } = useResolvedContent();
+    const { contentLoader } = getContent();
     let artists: [string, ArtistDetailsProps[]][] = [];
 
     await contentLoader
