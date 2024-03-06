@@ -10,11 +10,13 @@ const LanguageSelector = ({
 }: LanguageSelectorProps): ReactElement => {
     return (
         <div className={styles.LanguageSelector}>
-            <ul className="lang">
+            <ul className={styles.Lang}>
                 {existingLanguages.map((item) => (
                     <li
                         key={item.name}
-                        className={item.name === language.name ? 'active' : ''}
+                        className={
+                            item.name === language.name ? styles.Active : ''
+                        }
                     >
                         <EpiserverViewModeLink url={item.link}>
                             {item.displayName}

@@ -14,6 +14,13 @@ const LandingPage = ({ content }: LandingPageProps): ReactElement => {
     return (
         <div className={styles.LandingPage}>
             <nav className="Page-container PageHeader NavBar">
+                <EpiserverLink
+                    url={content.artistsLink.expanded.url}
+                    className="Button modal-default-button landing-page-button"
+                >
+                    {content.artistsLink.expanded.name}
+                </EpiserverLink>
+
                 <button
                     className="Button buy-ticket-button"
                     // onClick={showModal()}
@@ -32,13 +39,6 @@ const LandingPage = ({ content }: LandingPageProps): ReactElement => {
                 subtitle={content.subtitle}
                 heroimage={content.heroImage}
             />
-
-            <EpiserverLink
-                url={content.artistsLink.expanded.url}
-                className="Button modal-default-button landing-page-button"
-            >
-                {content.artistsLink.expanded.name}
-            </EpiserverLink>
 
             <main className="Page-container">
                 <div {...addEditAttributes('MainContentArea')}>
