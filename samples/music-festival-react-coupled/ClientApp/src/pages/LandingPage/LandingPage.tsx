@@ -11,7 +11,9 @@ import React, { ReactElement } from 'react';
 import LandingPageProps from './LandingPageProps';
 
 const LandingPage = ({ content }: LandingPageProps): ReactElement => {
+    // TODO: Modal not implemented, require a restructure to support client side interactivity
     // const { showModal } = useModal();
+
     return (
         <div className={styles.LandingPage}>
             <nav className="Page-container PageHeader NavBar">
