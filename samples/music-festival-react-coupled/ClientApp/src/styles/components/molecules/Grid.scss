@@ -9,11 +9,11 @@ widths and offsets should be applied to child grid cells.
 
 /* stylelint-disable declaration-property-unit-whitelist, no-duplicate-selectors */
 
-$Grid-gutterXsm: calc($spaceXSmall * $baseFontSize);
-$Grid-gutterSm: calc($spaceSmall * $baseFontSize);
-$Grid-gutterMd: calc($spaceMedium * $baseFontSize);
-$Grid-gutterLg: calc($spaceLarge * $baseFontSize);
-$Grid-gutterXlg: calc($spaceXLarge * $baseFontSize);
+$Grid-gutterXsm: calc($spaceXSmall);
+$Grid-gutterSm: calc($spaceSmall);
+$Grid-gutterMd: calc($spaceMedium);
+$Grid-gutterLg: calc($spaceLarge);
+$Grid-gutterXlg: calc($spaceXLarge);
 
 $Grid-gutterDefault: $Grid-gutterLg;
 

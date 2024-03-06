@@ -39,20 +39,20 @@ $colorLink: #fff;
 $colorLinkHover: #ccc;
 
 // - Space -
-$spaceDefault: 1.25rem;
-$spaceXSmall: $spaceDefault / 2;
-$spaceSmall: $spaceDefault / 1.5;
+$spaceDefault: 1.25em;
+$spaceXSmall: calc($spaceDefault / 2);
+$spaceSmall: calc($spaceDefault / 1.5);
 $spaceMedium: $spaceDefault;
-$spaceLarge: $spaceDefault * 1.5;
-$spaceXLarge: $spaceDefault * 2;
+$spaceLarge: calc($spaceDefault * 1.5);
+$spaceXLarge: calc($spaceDefault * 2);
 
 $space: 1em;
-$space-and-half: $space * 1.5;
-$space-double: $space * 2;
-$space-triple: $space * 3;
-$space-quad: $space * 4;
-$space-half: $space / 2;
-$space-quarter: $space / 4;
+$space-and-half: calc($space * 1.5);
+$space-double: calc($space * 2);
+$space-triple: calc($space * 3);
+$space-quad: calc($space * 4);
+$space-half: calc($space / 2);
+$space-quarter: calc($space / 4);
 
 // - Breakpoint Widths -
 $widthXSmall: calc(420 / $baseFontSize) + 'em';
