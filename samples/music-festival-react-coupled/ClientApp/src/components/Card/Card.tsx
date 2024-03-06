@@ -8,8 +8,8 @@ import CardProps from './CardProps';
 const Card = ({ name, image, url }: CardProps): ReactElement => {
     return (
         <EpiserverLink url={url}>
-            <div className={styles.card}>
-                <div className={styles.round}>
+            <div className={styles.Card}>
+                <div className={styles.Round}>
                     <ConditionalImage
                         src={process.env.NEXT_PUBLIC_WEBSITE_URL + image}
                         alt={name}
@@ -17,7 +17,7 @@ const Card = ({ name, image, url }: CardProps): ReactElement => {
                         height={60}
                     />
                 </div>
-                <div className={styles.info}>
+                <div className={styles.Info}>
                     <p>{name}</p>
                 </div>
             </div>

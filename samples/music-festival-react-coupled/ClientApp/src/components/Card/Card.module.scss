@@ -1,22 +1,15 @@
 @import '@/styles/common/variables.scss';
 
-.card {
+.Card {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 0.625rem 1.875rem 0.625rem 1.5625rem;
 }
 
-.round {
+.Round {
     overflow: hidden;
     margin-right: 10px;
-
-    &.big {
-        img {
-            width: 3.75rem;
-            height: 3.75rem;
-        }
-    }
 
     img {
         width: 2.5rem;
@@ -26,7 +19,14 @@
     }
 }
 
-.info {
+.Big {
+    img {
+        width: 3.75rem;
+        height: 3.75rem;
+    }
+}
+
+.Info {
     flex-grow: 1;
 
     p {

@@ -1,16 +1,16 @@
-.link {
+.Link {
     display: block;
 }
 
-.backButton {
+.BackButton {
     z-index: 10;
     height: 50px;
     width: 50px;
-    margin-top: 7px;
+    margin-top: -2px;
 
     @media (min-width: 768px) {
         height: 64px;
         width: 64px;
-        margin-top: 0;
+        margin-top: -10px;
     }
 }
