@@ -1,54 +1,89 @@
 import {
     ContentData,
+    ContentLoader,
     ContentResolver,
     ResolvedContent,
+    defaultConfig,
 } from '@episerver/content-delivery';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-const useResolvedContent = (
-    updateOnLoad: boolean = true
-): {
+import { headers } from 'next/headers';
+const useResolvedContent = (): {
+    contentLoader: ContentLoader;
+    contentResolver: ContentResolver;
     pending: boolean;
     resolvedContent: ResolvedContent<ContentData>;
     updateContentByUrl: (url?: string) => Promise<void>;
+    getContentByUrl: (url?: string) => Promise<ResolvedContent<ContentData>>;
 } => {
+    /**
+     * Setup the api
+     */
+    defaultConfig.apiUrl = process.env.NEXT_PUBLIC_API_URL || '';
+    defaultConfig.selectAllProperties = true;
+    defaultConfig.expandAllProperties = true;
+    // defaultConfig.getUrl = async (url) => {
+    //     return new Promise(() => {
+    //         if (typeof window !== 'undefined') {
+    //             // Always use relative URL client-side.
+    //             var tempUrl = new URL(url, 'http://temp');
+    //             return tempUrl.pathname + tempUrl.search;
+    //         }
+    //         return url;
+    //     });
+    // };
+
+    const headersList = headers();
+    const pathname = headersList.get('x-pathname') || '';
     let pending = false;
-    const [resolvedContent, setResolvedContent] = useState<
-        ResolvedContent<ContentData>
-    >({} as ResolvedContent<ContentData>);
-    const router = useRouter();
+    let resolvedContent = {} as ResolvedContent<ContentData>;
 
+    /**
+     * The contentResolver configured
+     */
+    const contentResolver = new ContentResolver();
+
+    /**
+     * The contentLoader configured
+     */
+    const contentLoader = new ContentLoader();
+
+    /**
+     * updateContentByUrl sets the resolvedContent parameter
+     */
     const updateContentByUrl = async (url?: string) => {
-        if (router.isReady) {
-            pending = true;
+        pending = true;
 
-            const contentResolver = new ContentResolver();
-            const result = await contentResolver.resolveContent(
-                url || router.asPath,
-                true
-            );
+        const result = await contentResolver.resolveContent(
+            url || pathname,
+            true
+        );
 
-            if (JSON.stringify(resolvedContent) !== JSON.stringify(result))
-                setResolvedContent(result);
+        if (JSON.stringify(resolvedContent) !== JSON.stringify(result))
+            Object.assign(resolvedContent, result);
 
-            pending = false;
-        }
+        pending = false;
     };
 
-    const initData = async () => {
-        try {
-            if (router.isReady) await updateContentByUrl(router.asPath);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
-    };
+    /**
+     * getContentByUrl returns the result
+     */
+    const getContentByUrl = async (url?: string) => {
+        pending = true;
 
-    if (updateOnLoad) initData();
+        const result = await contentResolver.resolveContent(
+            url || pathname,
+            true
+        );
+
+        return result;
+    };
 
     return {
+        contentLoader,
+        contentResolver,
         pending,
         resolvedContent,
         updateContentByUrl,
+        getContentByUrl,
     };
 };
 

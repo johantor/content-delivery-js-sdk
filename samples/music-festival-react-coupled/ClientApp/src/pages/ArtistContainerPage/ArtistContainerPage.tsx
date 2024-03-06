@@ -3,50 +3,48 @@ import styles from './ArtistContainerPage.module.scss';
 import BackButton from '@/components/BackButton';
 import Card from '@/components/Card';
 import LanguageSelector from '@/components/LanguageSelector';
+import useResolvedContent from '@/hooks/useResolvedContent';
 import EpiContent from '@/types/EpiContent';
 import { addEditAttributes } from '@/utils/episerverAttributes';
-import { ContentLoader } from '@episerver/content-delivery';
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement } from 'react';
 import { ArtistDetailsProps } from '../ArtistDetailsPage/ArtistDetailsPageProps';
 
-const ArtistContainerPage = ({ content }: EpiContent): ReactElement => {
-    const [artists, setArtists] = useState<[string, ArtistDetailsProps[]][]>(
-        []
-    );
-    const [loading, setLoading] = useState(true);
-    const contentLoader = new ContentLoader();
+const ArtistContainerPage = async ({
+    content,
+}: EpiContent): Promise<ReactElement> => {
+    const { contentLoader } = useResolvedContent();
+    let artists: [string, ArtistDetailsProps[]][] = [];
 
-    if (loading)
-        contentLoader
-            .getChildren<ArtistDetailsProps>(content.contentLink.guidValue, {
-                branch: content.language.name,
-            })
-            .then((children) => {
-                const ordered: ArtistDetailsProps[] = children.sort(
-                    (a, b): number =>
-                        a.artistName.toLowerCase() < b.artistName.toLowerCase()
-                            ? -1
-                            : 1
-                );
+    await contentLoader
+        .getChildren<ArtistDetailsProps>(content.contentLink.guidValue, {
+            branch: content.language.name,
+        })
+        .then((children) => {
+            const ordered: ArtistDetailsProps[] = children.sort(
+                (a, b): number =>
+                    a.artistName.toLowerCase() < b.artistName.toLowerCase()
+                        ? -1
+                        : 1
+            );
 
-                // Group by first letter of artist name
-                const artistsByLetter = ordered.reduce(
-                    (
-                        groups: {
-                            [key: string]: ArtistDetailsProps[];
-                        },
-                        item: ArtistDetailsProps
-                    ) => {
-                        const letter = item.artistName.substring(0, 1);
-                        groups[letter] = groups[letter] || [];
-                        groups[letter].push(item);
-                        return groups;
+            // Group by first letter of artist name
+            const artistsByLetter = ordered.reduce(
+                (
+                    groups: {
+                        [key: string]: ArtistDetailsProps[];
                     },
-                    {}
-                );
-                setArtists(Object.entries(artistsByLetter));
-            })
-            .finally(() => setLoading(false));
+                    item: ArtistDetailsProps
+                ) => {
+                    const letter = item.artistName.substring(0, 1);
+                    groups[letter] = groups[letter] || [];
+                    groups[letter].push(item);
+                    return groups;
+                },
+                {}
+            );
+
+            artists = Object.entries(artistsByLetter);
+        });
 
     return (
         <div className={styles.ArtistContainerPage}>
@@ -63,23 +61,22 @@ const ArtistContainerPage = ({ content }: EpiContent): ReactElement => {
                     <h1 {...addEditAttributes('Name')}>{content.name}</h1>
                 </div>
                 <div className="list">
-                    {artists &&
-                        artists.map((artist) => {
-                            const [key, values] = artist;
-                            return (
-                                <div key={key}>
-                                    <h3>{key}</h3>
-                                    {values.map((value, key) => (
-                                        <Card
-                                            key={key}
-                                            name={value.artistName}
-                                            image={value.artistPhoto}
-                                            url={value.url}
-                                        />
-                                    ))}
-                                </div>
-                            );
-                        })}
+                    {artists.map((artist) => {
+                        const [key, values] = artist;
+                        return (
+                            <div key={key}>
+                                <h3>{key}</h3>
+                                {values.map((value, key) => (
+                                    <Card
+                                        key={key}
+                                        name={value.artistName}
+                                        image={value.artistPhoto}
+                                        url={value.url}
+                                    />
+                                ))}
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
 

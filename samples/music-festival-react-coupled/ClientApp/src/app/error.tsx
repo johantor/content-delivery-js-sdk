@@ -1,9 +1,9 @@
-import React from 'react';
+'use client';
 
-function Custom403() {
+function Custom500() {
     return (
         <div>
-            <h1>Access denied</h1>
+            <h1>500 - Server-side error occurred</h1>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio,
                 rem nesciunt ad iure illum, repudiandae enim nostrum velit ipsum
@@ -13,4 +13,4 @@ function Custom403() {
         </div>
     );
 }
-export default Custom403;
+export default Custom500;
