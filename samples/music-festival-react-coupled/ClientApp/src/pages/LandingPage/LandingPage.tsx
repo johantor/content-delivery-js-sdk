@@ -5,6 +5,7 @@ import BuyTicketBlock from '@/components/BuyTicketBlock';
 import EpiserverContentArea from '@/components/EpiserverContentArea';
 import Hero from '@/components/Hero';
 import LanguageSelector from '@/components/LanguageSelector';
+import Modal from '@/components/Modal';
 import { addEditAttributes } from '@/utils/episerverAttributes';
 import React, { ReactElement } from 'react';
 import LandingPageProps from './LandingPageProps';
@@ -55,13 +56,13 @@ const LandingPage = ({ content }: LandingPageProps): ReactElement => {
                 </div>
             </footer>
 
-            {/* <Modal> */}
-            <BuyTicketBlock
-                pagePropertyName="BuyTicketBlock"
-                heading={content.buyTicketBlock.heading}
-                message={content.buyTicketBlock.message}
-            />
-            {/* </Modal> */}
+            <Modal>
+                <BuyTicketBlock
+                    pagePropertyName="BuyTicketBlock"
+                    heading={content.buyTicketBlock.heading}
+                    message={content.buyTicketBlock.message}
+                />
+            </Modal>
         </div>
     );
 };
