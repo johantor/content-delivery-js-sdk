@@ -39,7 +39,7 @@ In `startup.cs` a proxy is added by calling `services.AddNodeJs()` and by callin
 
 ### Client app
 
-In `utils\getSSRContent.ts`, default configuration for the Content Delivery API SDK is set up. Routing is be based on file naming. The page component `/app/[...slug].vue` is a wildcard route and all requests that don't map any other page component or route will end up here. It's this component that will call the Content Delivery API and try to route the request to a content page from the backend. 
+In `utils/getSSRContent.ts`, default configuration for the Content Delivery API SDK is set up. Routing is be based on file naming. The page component `src/app/[...slug]/page.tsx` is a wildcard route and all requests that don't map any other page component or route will end up here. It's this component that will call the Content Delivery API and try to route the request to a content page from the backend. 
 
 The content page, if resolved successfully, is rendered by the component  `/components/BlockComponentSelector`. This component will resolve the best matching component from the `/components/pages` folder to render it. Then same component is used for rendering of content blocks. An example of this can be found in `/compontents/EpiserverContentArea.vue`, this component is used for rendering of content area properties.
 
