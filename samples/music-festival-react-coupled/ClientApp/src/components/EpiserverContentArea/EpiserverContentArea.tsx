@@ -6,7 +6,7 @@ import React, { ReactElement } from 'react';
 import EpiserverBlock from '../EpiserverBlock';
 import EpiserverContentAreaProps from './EpiserverContentAreaProps';
 
-const EpiserverProperty = ({
+const EpiserverContentArea = ({
     content,
 }: EpiserverContentAreaProps): ReactElement => {
     const { resolvedContent } = getSSRContent();
@@ -35,4 +35,4 @@ const EpiserverProperty = ({
     );
 };
 
-export default React.memo(EpiserverProperty);
+export default React.memo(EpiserverContentArea);

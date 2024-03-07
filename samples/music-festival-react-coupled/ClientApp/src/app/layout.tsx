@@ -1,3 +1,4 @@
+import ClientComponent from '@/components/ClientComponent/ClientComponent';
 import type { Metadata } from 'next';
 import './../styles/global.scss';
 
@@ -13,7 +14,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body>{children}</body>
+            <body>
+                <>{children}</>
+                <ClientComponent />
+            </body>
         </html>
     );
 }
