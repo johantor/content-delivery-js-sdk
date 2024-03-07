@@ -39,15 +39,13 @@ In `startup.cs` a proxy is added by calling `services.AddNodeJs()` and by callin
 
 ### Client app
 
-In `app.vue`, default configuration for the Content Delivery API SDK is set up. Nuxt is a convention-based framework and routing is be based on file naming. The page component `/pages/[...path].vue` is a wildcard route and all requests that don't map any other page component or route will end up here. It's this component that will call the Content Delivery API and try to route the request to a content page from the backend. The routed content page is stored in the global state `/composables/useResolvedContent.ts` so it can be accessed from any other component.
+In `utils\getSSRContent.ts`, default configuration for the Content Delivery API SDK is set up. Routing is be based on file naming. The page component `/app/[...slug].vue` is a wildcard route and all requests that don't map any other page component or route will end up here. It's this component that will call the Content Delivery API and try to route the request to a content page from the backend. 
 
-The content page, if resolved successfully, is rendered by the `EPiServerPage` component, `/components/episerver/Page.vue`. This component will resolve the best matching component from the `/views/pages/` folder to render it. A similar component, `/compontents/episerver/Block.vue`, is used for rendering of content blocks. An example of this can be found in `/compontents/episerver/ContentArea.vue`, this component is used for rendering of content area properties.
+The content page, if resolved successfully, is rendered by the component  `/components/BlockComponentSelector`. This component will resolve the best matching component from the `/components/pages` folder to render it. Then same component is used for rendering of content blocks. An example of this can be found in `/compontents/EpiserverContentArea.vue`, this component is used for rendering of content area properties.
 
 ### Enable on-page-edit
 
-The on-page-edit overlay is based on data attributes that are rendered on the content properties' HTML elements. These attributes are only needed when the content is rendered inside Edit mode and this is done by a directive that is registered in `/plugins/epiEdit.ts`. Example usage: `<h1 v-epi-edit="'Title'">{{ model.Title }}</h1>`.
-
-The routed content global state also needs to be updated when a content property has been updated. This is achieved by first embedding a "communication script", this is done in `/pages/[...path].vue`, and then by subscribing to 'content saved' events in `/plugins/updateOnContentSaved.ts`.
+The on-page-edit overlay is based on data attributes that are rendered on the content properties' HTML elements. These attributes are only needed when the content is rendered inside Edit mode.
 
 ## Publishing and Hosting
 
