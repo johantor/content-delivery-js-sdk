@@ -4,11 +4,12 @@ This sample site demonstrates one approach to render Optimizely content with a J
 
 This sample uses [Next](https://nextjs.org/), but most of the techniques are framework agnostic and can be used with any other framework, such as Vue or Angular.
 
-Content is fetched from Optimizely using the Content Delivery API: https://world.optimizely.com/documentation/developer-guides/cms/content/content-delivery-api/
+Content is fetched from Optimizely using the Content Delivery API: <https://world.optimizely.com/documentation/developer-guides/cms/content/content-delivery-api/>
 
 ## Prerequisites
 
 This project uses:
+
 * Node.js 18+
 * .NET SDK 6+
 * SQL Server 2016 Express LocalDB ([download here](https://www.microsoft.com/en-us/sql-server/sql-server-downloads))
@@ -20,8 +21,9 @@ This project uses:
     * Open terminal for `../../src/@episerver/content-definitions` and run `npm install` (only needed first run).
     * Open terminal for `../../src/@episerver/content-delivery` and run `npm install` (only needed first run).
     * Open terminal for `ClientApp` and run `npm install`.
-3. Open terminal and run `dotnet run`.
-    * Navigate to http://localhost:8080.
+3. Create `.env.local` and copy contents from `.env.example`.
+4. Open terminal and run `dotnet run`.
+    * Navigate to <http://localhost:8080>.
     * Create an admin user.
     * The Node.js proxy will automatically start the client app and dotnet will serve it when it's ready.
 
@@ -39,7 +41,7 @@ In `startup.cs` a proxy is added by calling `services.AddNodeJs()` and by callin
 
 ### Client app
 
-In `utils/getSSRContent.ts`, default configuration for the Content Delivery API SDK is set up. Routing is be based on file naming. The page component `src/app/[...slug]/page.tsx` is a wildcard route and all requests that don't map any other page component or route will end up here. It's this component that will call the Content Delivery API and try to route the request to a content page from the backend. 
+In `utils/getSSRContent.ts`, default configuration for the Content Delivery API SDK is set up. Routing is be based on file naming. The page component `src/app/[...slug]/page.tsx` is a wildcard route and all requests that don't map any other page component or route will end up here. It's this component that will call the Content Delivery API and try to route the request to a content page from the backend.
 
 The content page, if resolved successfully, is rendered by the component  `/components/BlockComponentSelector`. This component will resolve the best matching component from the `/components/pages` folder to render it. Then same component is used for rendering of content blocks. An example of this can be found in `/compontents/EpiserverContentArea.vue`, this component is used for rendering of content area properties.
 
@@ -52,6 +54,7 @@ The on-page-edit overlay is based on data attributes that are rendered on the co
 In `MusicFestival.csproj` there is a target called `BuildClientApp`. This target is optional, but it makes publishing of the solution a bit more convenient. This target can be replaced by a separate build step in a CI/CD pipeline, if preferred. This means a regular `dotnet publish` will suffice.
 
 To host this setup in DXP, follow the [regular deployment instructions](https://docs.developers.optimizely.com/digital-experience-platform/v1.2.0-dxp-cloud-services/docs/deploy-using-code-packages) and then enable Node.js with the [platform settings file](https://docs.developers.optimizely.com/digital-experience-platform/v1.2.0-dxp-cloud-services/docs/code-package-format#platform-settings-file):
+
 ```json
 {
   "$schema": "https://schema.episerver.net/paasportal/2022-03-24/platformschema.json",
